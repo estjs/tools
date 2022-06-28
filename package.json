@@ -1,6 +1,6 @@
 {
   "name": "tools",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -28,12 +28,16 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "lint:change": "lcf --fix src/**/*",
-   "lint": "eslint --fix src/**/*"
+    "lint": "eslint --fix src/**/*",
+    "test": "vitest",
+    "prepublishOnly": "pnpm run build",
+    "release": "bumpp --commit --tag --push && pnpm publish"
   },
   "devDependencies": {
     "@estjs/eslint-config": "^0.3.2",
     "eslint": "^8.18.0",
     "tsup": "^6.1.2",
+    "bumpp": "^7.1.1",
     "typescript": "^4.7.4"
   }
 }
