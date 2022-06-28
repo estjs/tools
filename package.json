@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
+  "private":"false",
   "repository": {
     "type": "git",
     "url": "git@github.com:estjs/tools.git"
