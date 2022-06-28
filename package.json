@@ -1,15 +1,39 @@
 {
   "name": "tools",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:estjs/tools.git",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:estjs/tools.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev":"tsup --watch",
-    "build": "tsup"
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "lint:change": "lcf --fix src/**/*",
+   "lint": "eslint --fix src/**/*"
   },
   "devDependencies": {
-    "tsup": "^6.1.2"
+    "@estjs/eslint-config": "^0.3.2",
+    "eslint": "^8.18.0",
+    "tsup": "^6.1.2",
+    "typescript": "^4.7.4"
   }
 }
