@@ -1,9 +1,9 @@
 {
   "name": "@estjs/tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
-  "private":"false",
+  "private": "false",
   "repository": {
     "type": "git",
     "url": "git@github.com:estjs/tools.git"
