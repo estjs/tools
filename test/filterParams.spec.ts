@@ -17,9 +17,9 @@ describe('is type', () => {
     })).toMatchInlineSnapshot(`
       {
         " test ": 6,
-        "test1": "1",
-        "test2": "2",
-        "test3": "3",
+        "test1": " 1 ",
+        "test2": " 2",
+        "test3": "3 ",
         "test_": 4,
         "test__": 5,
       }
