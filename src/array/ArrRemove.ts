@@ -5,7 +5,7 @@
  * @returns
  */
 
-import { isArray } from './is/isType';
+import { isArray } from '../is/isType';
 
 export function ArrRemove<T extends any[]>(arr: T, item: T[number] ): any[] {
   if (!isArray(arr)) {

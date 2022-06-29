@@ -1,8 +1,3 @@
-const camelizeRE = /-(\w)/g;
-export function camelize (str: string) {
-  return str.replace(camelizeRE, (_, c) => { return c ? c.toUpperCase() : ''; });
-}
-
 const hyphenateRE = /([^-])([A-Z])/g;
 export function hyphenate(str: string) {
   return str
