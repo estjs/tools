@@ -1,0 +1,76 @@
+Arguments: 
+  /Users/xd/.nvm/versions/node/v16.14.2/bin/node /usr/local/bin/yarn coverage
+
+PATH: 
+  /Users/xd/.nvm/versions/node/v16.14.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/xd/.nvm/versions/node/v16.14.2/bin:/usr/local/sbin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.14.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/xd/Documents/www/tools/package.json: Unexpected string in JSON at position 712
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "@estjs/tools",
+    "version": "0.0.13",
+    "author": "jiangxd <jiangxd2016@gmail.com>",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:estjs/tools.git"
+    },
+    "bugs": {
+      "url": ""
+    },
+    "keywords": [],
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.js",
+        "import": "./dist/index.mjs"
+      }
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+      "dist"
+    ],
+    "scripts": {
+      "dev": "tsup --watch",
+      "build": "tsup",
+      "lint:change": "lcf --fix .",
+      "lint": "eslint --fix .",
+      "test": "vitest",
+      "coverage": "vitest run --coverage"
+      "prepublishOnly": "pnpm run build",
+      "release": "bumpp --commit --tag --push && pnpm publish --access public"
+    },
+    "devDependencies": {
+      "@estjs/eslint-config": "^0.3.2",
+      "bumpp": "^8.2.1",
+      "c8": "^7.11.3",
+      "eslint": "^8.18.0",
+      "tsup": "^6.1.2",
+      "typescript": "^4.7.4",
+      "vitest": "^0.16.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

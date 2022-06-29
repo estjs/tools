@@ -30,6 +30,7 @@
     "lint:change": "lcf --fix .",
     "lint": "eslint --fix .",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --tag --push && pnpm publish --access public"
   },
