@@ -1,6 +1,6 @@
 class eventBus {
   subs = new Map();
-  $on(type, callback) {
+  $on(type: string, callback: Function) {
     const sub = this.subs.get(type);
     const isEmpty = sub && sub.push(callback);
     if (!isEmpty) {
@@ -8,16 +8,16 @@ class eventBus {
     }
   }
 
-  $emit(type, ...payload) {
-    (this.subs.get(type) || []).forEach((fn) => {
+  $emit(type: string, ...payload: any[]) {
+    (this.subs.get(type) || []).forEach((fn: Function) => {
       fn(...payload);
     });
-    (this.subs.get('*') || []).forEach((fn) => {
+    (this.subs.get('*') || []).forEach((fn: Function) => {
       fn(...payload);
     });
   }
 
-  $off(type, callback) {
+  $off(type: string, callback: Function) {
     const sub = this.subs.get(type);
     if (sub) {
       sub.splice(sub.indexOf(callback) >>> 0, 1);

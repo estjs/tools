@@ -1,3 +1,4 @@
+export { ArrRemove } from './ArrRemove';
 export { curry } from './curry';
 export { debounce } from './debounce';
 export { throttle } from './throttle';
@@ -7,6 +8,7 @@ export { getUrlParam } from './getUrlParam';
 export { uniqueArray } from './uniqueArray';
 export { escapeHtml } from './escapeHtml';
 export { replaceAll } from './replaceAll';
+export { dateFormater } from './dateFormater';
 
 export { isEmail } from './is/isEmail';
 export { isIdCard } from './is/isIdCard';
