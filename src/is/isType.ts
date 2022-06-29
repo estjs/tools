@@ -1,6 +1,5 @@
 import { _toString } from '../common';
 
-
 export function isArray(o: any): boolean {
   return Array.isArray(o);
 }

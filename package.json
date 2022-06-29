@@ -27,8 +27,8 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "lint:change": "lcf --fix src/**/*",
-    "lint": "eslint --fix src/**/*",
+    "lint:change": "lcf --fix .",
+    "lint": "eslint --fix .",
     "test": "vitest",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --tag --push && pnpm publish"

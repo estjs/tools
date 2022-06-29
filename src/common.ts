@@ -1,1 +1,1 @@
-export const _toString = Object.prototype.toString
+export const _toString = Object.prototype.toString;
