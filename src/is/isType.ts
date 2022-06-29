@@ -1,55 +1,62 @@
-import { isStr } from './isStr';
-import { isFn } from './isFn';
-import { isPlainObject } from './isPlainObject';
-import { isArray } from './isArray';
-import { isSet } from './isSet';
-import { isMap } from './isMap';
-import { isReg } from './isReg';
-import { isNaN } from './isNaN';
-import { isNull } from './isNull';
-import { isUndef } from './isUndef';
-import { isSymbol } from './isSymbol';
-import { isBool } from './isBool';
-import { isNum } from './isNum';
-import { isPromise } from './isPromise';
-import { isDate } from './isDate';
-import { isWeakMap } from './isWeakMap';
-import { isWeakSet } from './isWeakSet';
-export function isType(s: any, type: string): boolean {
-  type = type.toLocaleLowerCase();
-  if (!type) { throw new Error('type is required'); }
+import { _toString } from '../common';
 
-  const types: Record<string, Function> = {
-    str: isStr,
-    s: isStr,
-    string: isStr,
-    fn: isFn,
-    f: isFn,
-    function: isFn,
-    object: isPlainObject,
-    o: isPlainObject,
-    array: isArray,
-    a: isArray,
-    set: isSet,
-    map: isMap,
-    m: isMap,
-    reg: isReg,
-    r: isReg,
-    b: isBool,
-    boolean: isBool,
-    n: isNum,
-    number: isNum,
-    u: isUndef,
-    undefined: isUndef,
-    null: isNull,
-    symbol: isSymbol,
-    nan: isNaN,
-    wm: isWeakMap,
-    ws: isWeakSet,
-    promise: isPromise,
-    weakmap: isWeakMap,
-    weakset: isWeakSet,
-    date: isDate,
-  };
-  return type.split('|').some(item => types[item.trim()]?.(s));
+
+export function isArray(o: any): boolean {
+  return Array.isArray(o);
+}
+export function isBlob(o: any): boolean {
+  return _toString.call(o) === '[object Blob]';
+}
+export function isBool(value: any): boolean {
+  return typeof value === 'boolean';
+}
+export function isDate(d: any): boolean {
+  return d instanceof Date;
+}
+export function isFn(o: any): boolean {
+  return typeof o === 'function';
+}
+export function isMap(o: any): boolean {
+  return _toString.call(o) === '[object Map]';
+}
+export function isNaN(o: any): boolean {
+  return typeof o !== 'number'
+    ? false
+    : isNaN(o);
+}
+export function isNull(o: any): boolean {
+  return o === null;
+}
+export function isNumber(o: any): boolean {
+  return typeof o === 'number';
+}
+export function isPlainObject(o: any): boolean {
+  return _toString.call(o) === '[object Object]';
+}
+export function isPromise(o: any): boolean {
+  return _toString.call(o) === '[object Promise]';
+}
+export function isReg(o: any): boolean {
+  return typeof o === 'object' && o.constructor === RegExp;
+}
+export function isSet(o: any): boolean {
+  return _toString.call(o) === '[object Set]';
+}
+export function isStr(o: any): boolean {
+  return typeof o === 'string';
+}
+export function isSymbol(o: any): boolean {
+  return typeof o === 'symbol';
+}
+export function isUndefined(o: any): boolean {
+  return typeof o === 'undefined';
+}
+export function isWeakMap(o: any): boolean {
+  return _toString.call(o) === '[object WeakMap]';
+}
+export function isWeakSet(o: any): boolean {
+  return _toString.call(o) === '[object WeakSet]';
+}
+export function isFile(o: any): boolean {
+  return _toString.call(o) === '[object File]';
 }
