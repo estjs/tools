@@ -35,9 +35,11 @@
   },
   "devDependencies": {
     "@estjs/eslint-config": "^0.3.2",
+    "bumpp": "^8.2.1",
+    "c8": "^7.11.3",
     "eslint": "^8.18.0",
     "tsup": "^6.1.2",
-    "bumpp": "^7.1.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "vitest": "^0.16.0"
   }
 }
