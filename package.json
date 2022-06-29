@@ -1,6 +1,6 @@
 {
   "name": "@estjs/tools",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -31,7 +31,7 @@
     "lint": "eslint --fix .",
     "test": "vitest",
     "prepublishOnly": "pnpm run build",
-    "release": "bumpp --commit --tag --push && pnpm publish"
+    "release": "bumpp --commit --tag --push && pnpm publish --access public"
   },
   "devDependencies": {
     "@estjs/eslint-config": "^0.3.2",
