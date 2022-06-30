@@ -19,3 +19,5 @@ export { isMobile } from './is/isMobile';
 export * from './is/isType';
 
 export * from './string/translate';
+
+export * from './type';

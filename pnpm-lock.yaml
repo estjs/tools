@@ -5,6 +5,7 @@ specifiers:
   bumpp: ^8.2.1
   c8: ^7.11.3
   eslint: ^8.18.0
+  pnpm: ^7.3.0
   tsup: ^6.1.2
   typescript: ^4.7.4
   vitest: ^0.16.0
@@ -14,6 +15,7 @@ devDependencies:
   bumpp: 8.2.1
   c8: 7.11.3
   eslint: 8.18.0
+  pnpm: 7.3.0
   tsup: 6.1.2_typescript@4.7.4
   typescript: 4.7.4
   vitest: 0.16.0_c8@7.11.3
@@ -2231,6 +2233,12 @@ packages:
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
+    dev: true
+
+  /pnpm/7.3.0:
+    resolution: {integrity: sha512-HOXT6V+AznAyjL2Ay3TuuJQucsEguUiKjqyQq4WPPwOpaaILhkKvu8Nn1/OQWGi9V6T7OciyrctAKeYyCha6Ow==}
+    engines: {node: '>=14.6'}
+    hasBin: true
     dev: true
 
   /postcss-load-config/3.1.4:
