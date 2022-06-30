@@ -3,20 +3,27 @@
  * @param time
  * @returns
  */
-export const dateFormater = (formater = 'YYYY-MM-DD HH:mm:ss', time?: string | number) => {
-  const date = time ? new Date(time) : new Date(),
-    Y = date.getFullYear() + '',
-    M = date.getMonth() + 1,
-    D = date.getDate(),
-    H = date.getHours(),
-    m = date.getMinutes(),
-    s = date.getSeconds();
-  return formater.replaceAll('YYYY', Y)
-    .replaceAll('YY', Y.slice(2, 4))
-    .replaceAll('MM', (M < 10 ? '0' : '') + M)
-    .replaceAll('DD', (D < 10 ? '0' : '') + D)
-    .replaceAll('HH', (H < 10 ? '0' : '') + H)
-    .replaceAll('mm', (m < 10 ? '0' : '') + m)
-    .replaceAll('ss', (s < 10 ? '0' : '') + s);
-};
+export function dateFormater (time?: string | number, fmt?: string, ): string {
+  const date = time ? new Date(time) : new Date();
 
+  if (!fmt) {
+    return date.toLocaleString();
+  }
+  const opt: Record<string, string> = {
+    'Y+': date.getFullYear().toString(),
+    'M+': (date.getMonth() + 1).toString(),
+    'd+': date.getDate().toString(),
+    'D+': date.getDate().toString(),
+    'H+': date.getHours().toString(),
+    'm+': date.getMinutes().toString(),
+    'S+': date.getSeconds().toString(),
+    's+': date.getSeconds().toString(),
+  };
+  for (const k in opt) {
+    const ret = new RegExp('(' + k + ')').exec(fmt);
+    if (ret) {
+      fmt = fmt.replace(ret[1], (ret[1].length === 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, '0')));
+    }
+  }
+  return fmt;
+}
