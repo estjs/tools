@@ -4,11 +4,6 @@ export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
 
 export const LOG_LIST = ['log', 'error', 'warn', 'debug', 'info'];
 
-// export interface LoggerOption {
-//   name: string;
-//   effact: Function;
-// }
-
 export const clc = {
   green: (text: string) => `\u001B[32m${text}\u001B[39m`,
   yellow: (text: string) => `\u001B[33m${text}\u001B[39m`,
@@ -20,24 +15,46 @@ export const clc = {
 
 export class Logger {
   protected name = '';
-  protected effact: Function | null = null;
   private static localInstance: Logger;
-  constructor(name: string, effact: Function) {
+  constructor(name: string) {
     this.name = name || '';
-    this.effact = effact;
-
   }
 
   public log(...args: any[]) {
-    if (this.effact) {
-      this.effact();
+    this.getConsoleFn('log')(this.getColorByLogLevel('log')(`[${dateFormater()}] [${this.name}] : ${args}`));
+  }
+
+  public info(...args: any[]) {
+    this.getConsoleFn('info')(this.getColorByLogLevel('info')(`[${dateFormater()}] [${this.name}] : ${args}`));
+  }
+
+  public error(...args: any[]) {
+    this.getConsoleFn('error')(this.getColorByLogLevel('error')(`[${dateFormater()}] [${this.name}] : ${args}`));
+  }
+
+  public warn(...args: any[]) {
+    this.getConsoleFn('warn')(this.getColorByLogLevel('warn')(`[${dateFormater()}] [${this.name}] : ${args}`));
+  }
+
+  public debug(...args: any[]) {
+    this.getConsoleFn('debug')(this.getColorByLogLevel('debug')(`[${dateFormater()}] [${this.name}] : ${args}`));
+  }
+
+  private getConsoleFn(level: LogLevel): Function {
+    switch (level) {
+      case 'debug':
+        return console.debug;
+      case 'warn':
+        return console.warn;
+      case 'error':
+        return console.error;
+      case 'info':
+        return console.info;
+      default:
+        return console.log;
     }
-    console.log(`[${dateFormater()}] [${this.name}] :`, args);
   }
 
-  getLog(){
-
-  }
   private getColorByLogLevel(level: LogLevel) {
     switch (level) {
       case 'debug':
