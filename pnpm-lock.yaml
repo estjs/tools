@@ -4,6 +4,7 @@ specifiers:
   '@estjs/eslint-config': ^0.3.2
   bumpp: ^8.2.1
   c8: ^7.11.3
+  dayjs: ^1.11.3
   eslint: ^8.18.0
   pnpm: ^7.3.0
   tsup: ^6.1.2
@@ -14,6 +15,7 @@ devDependencies:
   '@estjs/eslint-config': 0.3.2_eslint@8.18.0+typescript@4.7.4
   bumpp: 8.2.1
   c8: 7.11.3
+  dayjs: 1.11.3
   eslint: 8.18.0
   pnpm: 7.3.0
   tsup: 6.1.2_typescript@4.7.4
@@ -683,6 +685,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    dev: true
+
+  /dayjs/1.11.3:
+    resolution: {integrity: sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==}
     dev: true
 
   /debug/2.6.9:
