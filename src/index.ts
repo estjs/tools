@@ -15,7 +15,7 @@ export { dateFormater } from './string/dateFormater';
 export { isEmail } from './is/isEmail';
 export { isIdCard } from './is/isIdCard';
 export { isMobile } from './is/isMobile';
-
+export { Logger } from './logger';
 export * from './is/isType';
 
 export * from './string/translate';
