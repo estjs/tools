@@ -15,29 +15,40 @@ export const clc = {
 
 export class Logger {
   protected name = '';
+  protected time = false;
   private static localInstance: Logger;
-  constructor(name: string) {
+  constructor(name = '', time = false) {
     this.name = name || '';
+    this.time = time || false;
   }
 
   public log(...args: any[]) {
-    this.getConsoleFn('log')(this.getColorByLogLevel('log')(`[${dateFormater()}] [${this.name}] : ${args}`));
+    this.logger('log', args);
   }
 
   public info(...args: any[]) {
-    this.getConsoleFn('info')(this.getColorByLogLevel('info')(`[${dateFormater()}] [${this.name}] : ${args}`));
+
+    this.logger('info', args);
   }
 
   public error(...args: any[]) {
-    this.getConsoleFn('error')(this.getColorByLogLevel('error')(`[${dateFormater()}] [${this.name}] : ${args}`));
+
+    this.logger('error', args);
   }
 
   public warn(...args: any[]) {
-    this.getConsoleFn('warn')(this.getColorByLogLevel('warn')(`[${dateFormater()}] [${this.name}] : ${args}`));
+
+    this.logger('warn', args);
   }
 
   public debug(...args: any[]) {
-    this.getConsoleFn('debug')(this.getColorByLogLevel('debug')(`[${dateFormater()}] [${this.name}] : ${args}`));
+
+    this.logger('debug', args);
+  }
+
+  private logger(Level: LogLevel, args: any[]) {
+    this.getConsoleFn(Level)(this.getColorByLogLevel(Level)(`${this.time ? `[${dateFormater()}] ` : ''}${this.name ? `[${this.name}]` : ''}${this.time || this.name ? '  : ' : ''}${args}`));
+
   }
 
   private getConsoleFn(level: LogLevel): Function {
