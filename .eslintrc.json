@@ -1,6 +1,7 @@
 {
   "extends": ["@estjs/eslint-config"],
   "rules": {
-    "no-console":"off"
+    "no-console":"off",
+    "unicorn/prefer-string-replace-all":"off"
   }
 }

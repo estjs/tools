@@ -10,6 +10,7 @@ export { replaceAll } from './array/replaceAll';
 
 export { hasCn } from './string/hasCn';
 export { escapeHtml } from './string/escapeHtml';
+export { unescapeHtml } from './string/unescapeHtml';
 export { dateFormater } from './string/dateFormater';
 
 export { isEmail } from './is/isEmail';
