@@ -19,9 +19,9 @@ export function isMap(o: any): boolean {
   return _toString.call(o) === '[object Map]';
 }
 export function isNaN(o: any): boolean {
-  return typeof o !== 'number'
-    ? false
-    : isNaN(o);
+  return (Number.isNaN || function isNaN(input) {
+    return typeof input === 'number' && input !== input;
+  })(o);
 }
 export function isNull(o: any): boolean {
   return o === null;
