@@ -3,6 +3,7 @@ export { debounce } from './debounce';
 export { throttle } from './throttle';
 export { filterParams } from './filterParams';
 export { getUrlParam } from './getUrlParam';
+export { monitorPef } from './monitorPef';
 
 export { ArrRemove } from './array/ArrRemove';
 export { uniqueArray } from './array/uniqueArray';
