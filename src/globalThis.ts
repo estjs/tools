@@ -20,4 +20,3 @@
     delete Object.prototype._T_;
   }
 }(Object));
-export default globalThis;

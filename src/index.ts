@@ -1,3 +1,5 @@
+import './globalThis';
+import { Logger } from './logger';
 export { curry } from './curry';
 export { debounce } from './debounce';
 export { throttle } from './throttle';
@@ -24,3 +26,9 @@ export * from './is/isType';
 export * from './string/translate';
 
 export * from './types';
+
+export function installGlobal(name: string[] = []) {
+  globalThis.$log = new Logger('@estjs/tools', true);
+  console.log(globalThis.$log);
+
+}
