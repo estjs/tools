@@ -10,7 +10,7 @@ describe('array', () => {
     expect(replaceAll('wWw.XxX.com', 'x', 'w')).toMatchInlineSnapshot('"wWw.XwX.com"');
   });
   it('uniqueArray', ()=>{
-    expect(uniqueArray([1, 2, 3, 1, 2, 4, 5, 6])).toMatchInlineSnapshot(
+    expect(uniqueArray([1, 2, 3, 1, 2, 4, 5, 6])).toStrictEqual(
       [
         1,
         2,
@@ -20,7 +20,7 @@ describe('array', () => {
         6,
       ]
     );
-    expect(uniqueArray([1, 2, 3])).toMatchInlineSnapshot(
+    expect(uniqueArray([1, 2, 3])).toStrictEqual(
       [
         1,
         2,
