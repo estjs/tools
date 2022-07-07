@@ -5,7 +5,11 @@ export function hyphenate(str: string) {
     .replace(hyphenateRE, '$1-$2')
     .toLowerCase();
 }
-
+export function toHump(str: string) {
+  return str.replace(/_(\w)/g, (_, letter)=> {
+    return letter.toUpperCase();
+  });
+}
 export function capitalize (str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
