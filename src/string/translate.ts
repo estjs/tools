@@ -6,7 +6,7 @@ export function hyphenate(str: string) {
     .toLowerCase();
 }
 export function toHump(str: string) {
-  return str.replace(/_(\w)/g, (_, letter)=> {
+  return str.replace(/[_|-](\w)/g, (_, letter)=> {
     return letter.toUpperCase();
   });
 }
