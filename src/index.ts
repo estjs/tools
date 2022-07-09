@@ -5,7 +5,7 @@ export { throttle } from './throttle';
 export { filterParams } from './filterParams';
 export { getUrlParam } from './getUrlParam';
 export { monitorPef } from './monitorPef';
-export { template } from './tinyTemplateCompile';
+export { templateCompile } from './tinyTemplateCompile';
 
 export { ArrRemove } from './array/ArrRemove';
 export { uniqueArray } from './array/uniqueArray';

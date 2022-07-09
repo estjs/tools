@@ -1,9 +1,9 @@
-import { template } from '../src';
+import { templateCompile } from '../src';
 
-describe('Template', () => {
+describe('templateCompile', () => {
 
-  it('Template', ()=>{
-    const temp = new template(`
+  it('templateCompile', ()=>{
+    const temp = new templateCompile(`
     <html>
       <head><%= title %></head>
       <body>

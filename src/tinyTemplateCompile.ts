@@ -15,10 +15,10 @@ const end = '%>';
 const escpStart = '<%%';
 const escpEnd = '%%>';
 const escpout = '=';
-const unescpout = '-';
-const comt = '#';
+const unEscpout = '-';
+const hash = '#';
 
-export class template {
+export class templateCompile {
   public template: string;
   private tokens: string[] = [];
   private source = '';
@@ -32,14 +32,14 @@ export class template {
   public compile() {
     this.parseTemplateText();
     this.transformTokens();
-    this.wrapit();
+    this.wrapIt();
   }
 
   public render(local: object) {
     return this.fn!.call(null, local, escapeHtml);
   }
 
-  private wrapit() {
+  private wrapIt() {
     this.source = `\
           const __out = [];
           const __append = __out.push.bind(__out);
@@ -105,10 +105,10 @@ export class template {
         case start + escpout:
           this.state = State.ESCAPED;
           break;
-        case start + unescpout:
+        case start + unEscpout:
           this.state = State.RAW;
           break;
-        case start + comt:
+        case start + hash:
           this.state = State.COMMENT;
           break;
         case escpStart:
