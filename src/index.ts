@@ -15,6 +15,7 @@ export { hasCn } from './string/hasCn';
 export { escapeHtml } from './string/escapeHtml';
 export { unescapeHtml } from './string/unescapeHtml';
 export { dateFormater } from './string/dateFormater';
+export { randomColor } from './string/randomColor';
 
 export { isEmail } from './is/isEmail';
 export { isIdCard } from './is/isIdCard';
