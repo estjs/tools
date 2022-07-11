@@ -7,7 +7,7 @@ import {
   isNaN, isNull,
   isNumber, isPlainObject,
   isPromise, isReg,
-  isSet, isStr,
+  isSet, isString,
   isSymbol, isUndefined,
   isWeakMap, isWeakSet,
 } from '../src';
@@ -62,8 +62,8 @@ describe('is type', () => {
   it('is isSet', () => {
     expect(isSet(new Set())).toBe(true);
   });
-  it('is isStr', () => {
-    expect(isStr('123')).toBe(true);
+  it('is isString', () => {
+    expect(isString('123')).toBe(true);
   });
   it('is isSymbol', () => {
     expect(isSymbol(Symbol('test'))).toBe(true);
