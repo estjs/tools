@@ -41,7 +41,7 @@ export function isReg(o: any): boolean {
 export function isSet(o: any): boolean {
   return _toString.call(o) === '[object Set]';
 }
-export function isStr(o: any): boolean {
+export function isString(o: any): boolean {
   return typeof o === 'string';
 }
 export function isSymbol(o: any): boolean {
