@@ -21,6 +21,8 @@ export { isEmail } from './is/isEmail';
 export { isIdCard } from './is/isIdCard';
 export { isMobile } from './is/isMobile';
 export { Logger } from './logger';
+export { useWebp } from './useWebp';
+export { calcFps } from './calcFps';
 export * from './is/isType';
 
 export * from './string/translate';

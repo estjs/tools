@@ -1,5 +1,6 @@
-export function animationFrameWrapper(fn: () => void, delta = 1000, autoStop = false): (() => void) {
-  let start: number; let work = true;
+export function animationFrameWrapper(fn: (timestamp: number) => void, delta = 1000, autoStop = false): (() => void) {
+  let start: number;
+  let work = true;
   const animationFrame = window.requestAnimationFrame
     || window.webkitRequestAnimationFrame
     || window.mozRequestAnimationFrame
@@ -14,7 +15,7 @@ export function animationFrameWrapper(fn: () => void, delta = 1000, autoStop = f
   const animationId = animationFrame(function myFrame(timestamp: number = Date.now()) {
     if (!work) { return; }
     if (start === undefined) { start = timestamp; } else if (timestamp - start > delta) {
-      fn?.();
+      fn?.(timestamp);
       start = timestamp;
       if (autoStop) { stop(); }
     }
