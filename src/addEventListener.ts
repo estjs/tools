@@ -7,7 +7,7 @@ export function addEventListener(target: Window | Document | Element | string, e
   let stopped = false;
   let stop: () => void;
   let animationStop: (() => void);
-  if (eventName === 'DOMContentLoaded') { stopped = true };
+  if (eventName === 'DOMContentLoaded') { stopped = true; }
   function event(e: Event) {
     try {
       callback?.call?.(e.target, e);
@@ -28,9 +28,11 @@ export function addEventListener(target: Window | Document | Element | string, e
   });
 
   window.addEventListener('unload', () => stop?.());
-  if (eventName === 'DOMContentLoaded') { animationStop = animationFrameWrapper(callback, 0, true) };
-  else
-  { animationFrameWrapper(update, 0, true) };
+  if (eventName === 'DOMContentLoaded') {
+    animationStop = animationFrameWrapper(callback, 0, true);
+  } else {
+    animationFrameWrapper(update, 0, true);
+  }
 
   function update() {
     if (hasMounted) {
@@ -50,7 +52,7 @@ export function addEventListener(target: Window | Document | Element | string, e
     hasMounted = true;
   }
   return () => {
-    if (!stop) { return stopped = true };
+    if (!stop) { return stopped = true; }
     setTimeout(stop);
   };
 }
