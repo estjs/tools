@@ -25,6 +25,8 @@ export { useWebp } from './useWebp';
 export { calcFps } from './calcFps';
 export { asyncPool } from './asyncPool';
 export { transformVdeep } from './transformVdeep';
+export { addEventListener } from './addEventListener';
+export { useResizeObserver } from './useResizeObserver';
 export * from './is/isType';
 
 export * from './string/translate';
