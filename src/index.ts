@@ -23,6 +23,8 @@ export { isMobile } from './is/isMobile';
 export { Logger } from './logger';
 export { useWebp } from './useWebp';
 export { calcFps } from './calcFps';
+export { asyncPool } from './asyncPool';
+export { transformVdeep } from './transformVdeep';
 export * from './is/isType';
 
 export * from './string/translate';
