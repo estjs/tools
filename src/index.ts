@@ -16,6 +16,7 @@ export { unescapeHtml } from './string/unescapeHtml';
 export { dateFormater } from './string/dateFormater';
 export { randomColor } from './string/randomColor';
 export * from './string/url';
+export * from './is/isEmpty';
 
 export { isEmail } from './is/isEmail';
 export { isIdCard } from './is/isIdCard';
