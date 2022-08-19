@@ -3,7 +3,6 @@ export { curry } from './curry';
 export { debounce } from './debounce';
 export { throttle } from './throttle';
 export { filterParams } from './filterParams';
-export { getUrlParam } from './getUrlParam';
 export { monitorPef } from './monitorPef';
 export { templateCompile } from './tinyTemplateCompile';
 
@@ -16,6 +15,7 @@ export { escapeHtml } from './string/escapeHtml';
 export { unescapeHtml } from './string/unescapeHtml';
 export { dateFormater } from './string/dateFormater';
 export { randomColor } from './string/randomColor';
+export * from './string/url';
 
 export { isEmail } from './is/isEmail';
 export { isIdCard } from './is/isIdCard';

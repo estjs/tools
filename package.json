@@ -28,7 +28,6 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "lint:change": "lcf ./src --fix",
     "lint": "eslint ./src --fix",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
