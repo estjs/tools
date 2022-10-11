@@ -23,6 +23,7 @@
 export function compose (...fn: Function[]) {
   return function (...args: any) {
     return fn.reduceRight((prevResult, currentFn) => {
+      // @ts-expect-error
       return currentFn.call(this, ...prevResult);
     }, args);
   };
