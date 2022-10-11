@@ -1,4 +1,4 @@
-import { escapeHtml } from './string/escapeHtml';
+import { escapeHtml } from '../string/escapeHtml';
 
 enum State {
   EVAL,
