@@ -1,4 +1,4 @@
-import { Logger } from './../src/logger';
+import { Logger } from '../src/code/logger';
 const name = '@estjs/tool';
 
 export const clc = {

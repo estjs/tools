@@ -1,4 +1,4 @@
-import { isString } from './is/isType';
+import { isString } from '../is/isType';
 import { animationFrameWrapper } from './animationFrameWrapper';
 
 export function addEventListener(target: Window | Document | Element | string, eventName: string, callback: (e: any) => void, useCapture?: boolean | AddEventListenerOptions, autoRemove?: boolean): (() => void) {

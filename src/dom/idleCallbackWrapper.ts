@@ -1,5 +1,5 @@
-import type { Deadline } from './types';
-import { isFn } from './is/isType';
+import type { Deadline } from '../types';
+import { isFn } from '../is/isType';
 
 type Timeout = number | (() => void);
 
