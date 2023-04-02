@@ -1,3 +1,4 @@
+import { isString } from '../is/isType';
 import { dateFormater } from '../string/dateFormater';
 
 export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
@@ -42,12 +43,17 @@ export class Logger {
   }
 
   public debug(...args: any[]) {
-
     this.logger('debug', args);
   }
 
   private logger(Level: LogLevel, args: any[]) {
-    this.getConsoleFn(Level)(this.getColorByLogLevel(Level)(`${this.time ? `[${dateFormater()}] ` : ''}${this.name ? `[${this.name}]` : ''}${this.time || this.name ? '  : ' : ''}${args}`));
+    const fn = this.getConsoleFn(Level);
+    const color = this.getColorByLogLevel(Level);
+    const time = this.time ? `[${dateFormater()}] ` : '';
+    const name = this.name ? `[${this.name}]` : '';
+    const info = `${time}${name}${time || name ? ' :' : ''}${isString(args) ? args: JSON.stringify(args)}`
+
+    fn(color(info));
 
   }
 
