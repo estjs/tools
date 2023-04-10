@@ -27,7 +27,7 @@ describe('logger', () => {
     const logger = new Logger(name);
     console['log'] = vitest.fn(storeLog);
     logger.log('hello');
-    expect(outputData).toBe(clc.green('[@estjs/tool]  : hello'));
+    expect(outputData).toBe(clc.green('[@estjs/tool]: hello'));
   });
 
 });

@@ -51,7 +51,7 @@ export class Logger {
     const color = this.getColorByLogLevel(Level);
     const time = this.time ? `[${dateFormater()}] ` : '';
     const name = this.name ? `[${this.name}]` : '';
-    const info = `${time}${name}${time || name ? ' :' : ''}${isString(args) ? args: JSON.stringify(args)}`
+    const info = `${time}${name}${time || name ? ': ' : ''}${args}`;
 
     fn(color(info));
 
