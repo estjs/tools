@@ -1,6 +1,6 @@
 {
   "name": "@estjs/tools",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
   "packageManager": "pnpm@8.1.0",
