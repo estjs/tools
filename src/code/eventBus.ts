@@ -1,5 +1,13 @@
 class eventBus {
   subs = new Map();
+  instance: eventBus | null = null;
+  constructor() {
+    if (!this.instance) {
+      this.instance = this;
+    }
+    return this.instance;
+  }
+
   $on(type: string, callback: Function) {
     const sub = this.subs.get(type);
     const isEmpty = sub && sub.push(callback);

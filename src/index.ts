@@ -1,9 +1,11 @@
 import './code/globalThis';
+
 export * from './types';
 
 export { curry } from './fn/curry';
 export { debounce } from './fn/debounce';
 export { throttle } from './fn/throttle';
+export { noop } from './fn/noop';
 
 export { ArrRemove } from './array/ArrRemove';
 export { uniqueArray } from './array/uniqueArray';
@@ -29,7 +31,6 @@ export { asyncPool } from './promise/asyncPool';
 
 export { Logger } from './code/logger';
 export { filterParams } from './code/filterParams';
-export { transformVdeep } from './code/transformVdeep';
 export { templateCompile } from './code/tinyTemplateCompile';
 
 export { useWebp } from './dom/useWebp';

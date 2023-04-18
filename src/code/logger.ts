@@ -1,4 +1,3 @@
-import { isString } from '../is/isType';
 import { dateFormater } from '../string/dateFormater';
 
 export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
