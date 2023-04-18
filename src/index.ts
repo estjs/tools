@@ -1,5 +1,3 @@
-import './code/globalThis';
-
 export * from './types';
 
 export { curry } from './fn/curry';
