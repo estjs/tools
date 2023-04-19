@@ -17,3 +17,4 @@ declare global {
     msCancelAnimationFrame: (handle: number) => void;
   }
 }
+export type StringNumber = `${number}`;

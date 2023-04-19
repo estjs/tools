@@ -1,4 +1,5 @@
 import { _toString } from '../common';
+import type { StringNumber } from '../types';
 
 export function isArray(o: any): boolean {
   return Array.isArray(o);
@@ -58,4 +59,7 @@ export function isWeakSet(o: any): boolean {
 }
 export function isFile(o: any): boolean {
   return _toString.call(o) === '[object File]';
+}
+export function isStringNumber(value: string): value is StringNumber {
+  return !Number.isNaN(Number(value));
 }
