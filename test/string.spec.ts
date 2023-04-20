@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { dateFormater, escapeHtml, hasCn, unescapeHtml } from '../src';
 import { humanize } from '../src/string/humanize';
+
 describe('string', () => {
 
   it('formater', ()=>{
@@ -25,7 +26,7 @@ describe('string', () => {
     expect(humanize(0)).toMatchInlineSnapshot('"0 B"');
     expect(humanize(10)).toMatchInlineSnapshot('"10.0 B"');
     expect(humanize(100)).toMatchInlineSnapshot('"100 B"');
-    expect(humanize(1000)).toMatchInlineSnapshot('"1000 B"');
+    expect(humanize(1024)).toMatchInlineSnapshot('"1.00 KB"');
     expect(humanize(10000)).toMatchInlineSnapshot('"9.77 KB"');
     expect(humanize(100000)).toMatchInlineSnapshot('"97.7 KB"');
     expect(humanize(1000000)).toMatchInlineSnapshot('"977 KB"');
