@@ -30,6 +30,7 @@
     "build": "tsup",
     "lint": "eslint ./src --fix",
     "test": "vitest",
+    "test:watch": "vitest --watch",
     "typecheck": "tsc --noEmit",
     "coverage": "vitest run --coverage",
     "prepublishOnly": "pnpm run build",
