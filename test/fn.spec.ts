@@ -1,5 +1,6 @@
 import type { IBaseDef } from '../src/fn/defineConstants';
 import { defineConstants } from '../src/fn/defineConstants';
+import { filterNotValue } from '../src/fn/filterNotValue';
 
 // 定义一个常量数组
 const constantDefs: IBaseDef[] = [
@@ -61,5 +62,65 @@ describe('测试 defineConstants 函数', () => {
 
   test('测试 LIST', () => {
     expect(constants.LIST).toEqual(constantDefs);
+  });
+});
+
+describe('filterNotValue', () => {
+  it('returns the same value if it is not an object', () => {
+    expect(filterNotValue(null)).toBe(null);
+    expect(filterNotValue(123)).toBe(123);
+    expect(filterNotValue('abc')).toBe('abc');
+  });
+
+  it('removes all undefined or null values from the object', () => {
+    const input = {
+      a: 123,
+      b: null,
+      c: undefined,
+      d: {
+        e: 'test',
+        f: null,
+        g: {
+          h: undefined,
+        },
+      },
+    };
+
+    expect(filterNotValue(input)).toMatchInlineSnapshot(`
+      {
+        "a": 123,
+        "d": {
+          "e": "test",
+          "f": null,
+          "g": {
+            "h": undefined,
+          },
+        },
+      }
+    `);
+  });
+
+  it('keeps all values when deep is true', () => {
+    const input = {
+      a: 123,
+      b: null,
+      c: undefined,
+      d: {
+        e: 'test',
+        f: null,
+        g: {
+          h: undefined,
+        },
+      },
+    };
+
+    expect(filterNotValue(input, true)).toMatchInlineSnapshot(`
+      {
+        "a": 123,
+        "d": {
+          "e": "test",
+        },
+      }
+    `);
   });
 });

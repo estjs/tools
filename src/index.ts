@@ -4,7 +4,8 @@ export { curry } from './fn/curry';
 export { debounce } from './fn/debounce';
 export { throttle } from './fn/throttle';
 export { noop } from './fn/noop';
-export * from "./fn/defineConstants"
+export * from './fn/defineConstants';
+export { filterNotValue } from './fn/filterNotValue';
 
 export { ArrRemove } from './array/ArrRemove';
 export { uniqueArray } from './array/uniqueArray';
