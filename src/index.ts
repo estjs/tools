@@ -6,6 +6,7 @@ export { throttle } from './fn/throttle';
 export { noop } from './fn/noop';
 export * from './fn/defineConstants';
 export { filterNotValue } from './fn/filterNotValue';
+export { getValueByPath, setValueByPath } from './fn/getValueByPath';
 
 export { ArrRemove } from './array/ArrRemove';
 export { uniqueArray } from './array/uniqueArray';
@@ -39,4 +40,6 @@ export { calcFps } from './dom/calcFps';
 export { monitorPef } from './dom/monitorPef';
 export { addEventListener } from './dom/addEventListener';
 export { useResizeObserver } from './dom/useResizeObserver';
+
+export { uniqueArrayObject } from './obj/uniqueArrayObject';
 
