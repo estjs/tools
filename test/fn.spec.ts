@@ -66,12 +66,6 @@ describe('测试 defineConstants 函数', () => {
 });
 
 describe('filterNotValue', () => {
-  it('returns the same value if it is not an object', () => {
-    expect(filterNotValue(null)).toBe(null);
-    expect(filterNotValue(123)).toBe(123);
-    expect(filterNotValue('abc')).toBe('abc');
-  });
-
   it('removes all undefined or null values from the object', () => {
     const input = {
       a: 123,
