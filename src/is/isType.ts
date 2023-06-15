@@ -63,3 +63,7 @@ export function isFile(o: any): boolean {
 export function isStringNumber(value: string): value is StringNumber {
   return !Number.isNaN(Number(value));
 }
+
+export function isBower() {
+  return typeof window === 'object';
+}

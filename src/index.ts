@@ -21,6 +21,7 @@ export { randomColor } from './string/randomColor';
 export { unescapeHtml } from './string/unescapeHtml';
 export { dateFormater } from './string/dateFormater';
 export { humanize } from './string/humanize';
+export { uuid } from './string/uuid';
 
 export * from './is/isEmpty';
 export * from './is/isType';
