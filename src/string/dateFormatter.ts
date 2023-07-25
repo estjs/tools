@@ -3,7 +3,7 @@
  * @param time
  * @returns
  */
-export function dateFormater (time?: string | number, fmt?: string, ): string {
+export function dateFormatter (time?: string | number, fmt?: string, ): string {
   const date = time ? new Date(time) : new Date();
 
   if (!fmt) {

@@ -1,4 +1,4 @@
-import { dateFormater } from '../string/dateFormater';
+import { dateFormater } from '../string/dateFormatter';
 
 export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
 
