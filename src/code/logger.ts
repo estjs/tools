@@ -1,4 +1,4 @@
-import { dateFormater } from '../string/dateFormatter';
+import { dateFormatter } from '../string/dateFormatter';
 
 export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
 
@@ -48,7 +48,7 @@ export class Logger {
   private logger(Level: LogLevel, args: any[]) {
     const fn = this.getConsoleFn(Level);
     const color = this.getColorByLogLevel(Level);
-    const time = this.time ? `[${dateFormater()}] ` : '';
+    const time = this.time ? `[${dateFormatter()}] ` : '';
     const name = this.name ? `[${this.name}]` : '';
     const info = `${time}${name}${time || name ? ': ' : ''}${args}`;
 
