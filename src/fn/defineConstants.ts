@@ -12,8 +12,8 @@ type ToProperty<
 
 type ToKeys<T> = T extends readonly [infer A, ...infer B]
   ? A extends {
-    readonly key: infer K;
-  }
+      readonly key: infer K;
+    }
     ? B['length'] extends 0
       ? [K]
       : [K, ...ToKeys<B>]
@@ -22,8 +22,8 @@ type ToKeys<T> = T extends readonly [infer A, ...infer B]
 
 type ToValues<T> = T extends readonly [infer A, ...infer B]
   ? A extends {
-    readonly value: infer K;
-  }
+      readonly value: infer K;
+    }
     ? B['length'] extends 0
       ? [K]
       : [K, ...ToValues<B>]
@@ -40,9 +40,7 @@ type ToSingleKeyMap<T> = T extends {
     : never
   : never;
 
-export type MergeIntersection<A> = A extends infer T
-  ? { [Key in keyof T]: T[Key] }
-  : never;
+export type MergeIntersection<A> = A extends infer T ? { [Key in keyof T]: T[Key] } : never;
 
 type ToKeyMap<T> = T extends readonly [infer A, ...infer B]
   ? B['length'] extends 0
@@ -100,10 +98,10 @@ type ToValueKey<T> = T extends readonly [infer A, ...infer B]
     : MergeIntersection<ToSingleValueKey<A> & ToValueKey<B>>
   : [];
 
-export function defineConstants<
-  T extends readonly IBaseDef[],
-  N extends string = '',
->(defs: T, namespace?: N) {
+export function defineConstants<T extends readonly IBaseDef[], N extends string = ''>(
+  defs: T,
+  namespace?: N,
+) {
   const prefix = namespace ? `${namespace}_` : '';
   return {
     [`${prefix}KEYS`]: defs.map(item => item.key),

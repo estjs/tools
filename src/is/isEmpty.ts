@@ -15,4 +15,3 @@ export function isEmptySet(value: Set<unknown>): boolean {
 export function isEmptyMap(value: Map<Object, unknown>): boolean {
   return value.size === 0;
 }
-

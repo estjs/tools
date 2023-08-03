@@ -18,7 +18,8 @@ export function monitorPef() {
     timingObj['HTTP请求响应完成时间'] = (time.responseEnd - time.requestStart) / 1000;
     timingObj['DOM开始加载前所花费时间'] = (time.responseEnd - time.fetchStart) / 1000;
     timingObj['DOM加载完成时间'] = (time.domComplete - time.domInteractive) / 1000;
-    timingObj['脚本加载时间'] = (time.domContentLoadedEventEnd - time.domContentLoadedEventStart) / 1000;
+    timingObj['脚本加载时间'] =
+      (time.domContentLoadedEventEnd - time.domContentLoadedEventStart) / 1000;
     timingObj['onload事件时间'] = (time.loadEventEnd - time.loadEventStart) / 1000;
     timingObj['页面完全加载时间'] = (time.loadEventEnd - time.fetchStart) / 1000;
     console.table(timingObj);
@@ -27,4 +28,3 @@ export function monitorPef() {
     console.log(performance.timing);
   }
 }
-

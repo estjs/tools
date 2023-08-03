@@ -22,7 +22,9 @@ describe('getValueByPath', () => {
   });
 
   it('should return the value of a nested property', () => {
-    expect(getValueByPath({ some: { nested: { value: 'hello' } } }, 'some.nested.value')).toEqual('hello');
+    expect(getValueByPath({ some: { nested: { value: 'hello' } } }, 'some.nested.value')).toEqual(
+      'hello',
+    );
   });
 
   it('should return undefined when a non-object is encountered in the path', () => {

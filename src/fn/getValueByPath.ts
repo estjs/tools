@@ -10,7 +10,7 @@ type Data = Record<string, any>;
  */
 export const getValueByPath = <T = any>(
   obj: Data | undefined,
-  path: string | undefined
+  path: string | undefined,
 ): T | undefined => {
   if (!obj || !path) {
     return undefined;
@@ -43,11 +43,7 @@ export const getValueByPath = <T = any>(
  * @param path 对象属性路径
  * @param value 属性值
  */
-export const setValueByPath = (
-  obj: Data | undefined,
-  path: string | undefined,
-  value: any
-) => {
+export const setValueByPath = (obj: Data | undefined, path: string | undefined, value: any) => {
   if (!obj || !path) {
     return;
   }

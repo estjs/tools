@@ -1,6 +1,8 @@
 export function useWebp(): boolean {
   try {
-    return document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    return (
+      document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0
+    );
   } catch {
     return false;
   }

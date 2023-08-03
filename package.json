@@ -37,14 +37,14 @@
     "release": "bumpp --commit --tag --push && pnpm publish --access public"
   },
   "devDependencies": {
-    "@estjs/eslint-config": "^0.7.13-beta.2",
+    "@estjs/eslint-config": "^0.7.13",
     "bumpp": "^9.1.1",
     "c8": "^8.0.1",
     "dayjs": "^1.11.9",
     "eslint": "^8.46.0",
+    "jsdom": "^22.1.0",
     "pnpm": "^8.6.11",
     "tsup": "^7.2.0",
-    "jsdom": "^22.1.0",
     "typescript": "^5.1.6",
     "vitest": "^0.34.1"
   }

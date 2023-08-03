@@ -20,9 +20,12 @@ export function isMap(o: any): boolean {
   return _toString.call(o) === '[object Map]';
 }
 export function isNaN(o: any): boolean {
-  return (Number.isNaN || function isNaN(input) {
-    return typeof input === 'number' && input !== input;
-  })(o);
+  return (
+    Number.isNaN ||
+    function isNaN(input) {
+      return typeof input === 'number' && input !== input;
+    }
+  )(o);
 }
 export function isNull(o: any): boolean {
   return o === null;
@@ -60,10 +63,25 @@ export function isWeakSet(o: any): boolean {
 export function isFile(o: any): boolean {
   return _toString.call(o) === '[object File]';
 }
-export function isStringNumber(value: string): value is StringNumber {
-  return !Number.isNaN(Number(value));
+// export function isStringNumber(value: string): value is StringNumber {
+//   return !Number.isNaN(Number(value));
+// }
+export function isNumberStr(str: string): str is StringNumber {
+  return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str);
 }
 
 export function isBower() {
   return typeof window === 'object';
+}
+
+// 判断字符串是否为纯小写
+export function isLowerCase(str: string) {
+  const reg = /^[a-z]+$/;
+  return reg.test(str);
+}
+
+// 判断字符串是否为纯大写
+export function isUpperCase(str: string) {
+  const reg = /^[A-Z]+$/;
+  return reg.test(str);
 }

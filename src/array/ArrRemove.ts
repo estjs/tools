@@ -7,7 +7,7 @@
 
 import { isArray } from '../is/isType';
 
-export function ArrRemove<T extends any[]>(arr: T, item: T[number] ): T[] {
+export function ArrRemove<T extends any[]>(arr: T, item: T[number]): T[] {
   if (!isArray(arr)) {
     return arr;
   }
@@ -22,5 +22,4 @@ export function ArrRemove<T extends any[]>(arr: T, item: T[number] ): T[] {
   } else {
     return arr;
   }
-
 }

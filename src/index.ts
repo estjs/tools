@@ -33,6 +33,7 @@ export { sleep } from './promise/sleep';
 export { asyncPool } from './promise/asyncPool';
 
 export { Logger } from './code/logger';
+export * from './code/cache';
 export { filterParams } from './code/filterParams';
 export { templateCompile } from './code/tinyTemplateCompile';
 
@@ -43,4 +44,5 @@ export { addEventListener } from './dom/addEventListener';
 export { useResizeObserver } from './dom/useResizeObserver';
 
 export { uniqueArrayObject } from './obj/uniqueArrayObject';
-
+export * from './obj/extends';
+export * from './obj/clone';

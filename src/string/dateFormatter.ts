@@ -3,7 +3,7 @@
  * @param time
  * @returns
  */
-export function dateFormatter (time?: string | number, fmt?: string, ): string {
+export function dateFormatter(time?: string | number, fmt?: string): string {
   const date = time ? new Date(time) : new Date();
 
   if (!fmt) {
@@ -22,7 +22,7 @@ export function dateFormatter (time?: string | number, fmt?: string, ): string {
   for (const k in opt) {
     const ret = new RegExp('(' + k + ')').exec(fmt);
     if (ret) {
-      fmt = fmt.replace(ret[1], (ret[1].length === 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, '0')));
+      fmt = fmt.replace(ret[1], ret[1].length === 1 ? opt[k] : opt[k].padStart(ret[1].length, '0'));
     }
   }
   return fmt;
