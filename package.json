@@ -1,9 +1,9 @@
 {
   "name": "@estjs/tools",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
-  "packageManager": "pnpm@8.1.0",
+  "packageManager": "pnpm@8.6.11",
   "repository": {
     "type": "git",
     "url": "git@github.com:estjs/tools.git"
@@ -37,14 +37,15 @@
     "release": "bumpp --commit --tag --push && pnpm publish --access public"
   },
   "devDependencies": {
-    "@estjs/eslint-config": "^0.6.7",
-    "bumpp": "^9.1.0",
-    "c8": "^7.13.0",
-    "dayjs": "^1.11.7",
-    "eslint": "^8.38.0",
-    "pnpm": "^8.3.0",
-    "tsup": "^6.7.0",
-    "typescript": "^5.0.4",
-    "vitest": "^0.30.1"
+    "@estjs/eslint-config": "^0.7.13-beta.2",
+    "bumpp": "^9.1.1",
+    "c8": "^8.0.1",
+    "dayjs": "^1.11.9",
+    "eslint": "^8.46.0",
+    "pnpm": "^8.6.11",
+    "tsup": "^7.2.0",
+    "jsdom": "^22.1.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.1"
   }
 }
