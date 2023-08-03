@@ -27,17 +27,14 @@ export class Logger {
   }
 
   public info(...args: any[]) {
-
     this.logger('info', args);
   }
 
   public error(...args: any[]) {
-
     this.logger('error', args);
   }
 
   public warn(...args: any[]) {
-
     this.logger('warn', args);
   }
 
@@ -53,7 +50,6 @@ export class Logger {
     const info = `${time}${name}${time || name ? ': ' : ''}${args}`;
 
     fn(color(info));
-
   }
 
   private getConsoleFn(level: LogLevel): Function {
