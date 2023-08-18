@@ -46,3 +46,4 @@ export { useResizeObserver } from './dom/useResizeObserver';
 export { uniqueArrayObject } from './obj/uniqueArrayObject';
 export * from './obj/extends';
 export * from './obj/clone';
+export { numToMoney } from './common';
