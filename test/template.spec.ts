@@ -18,18 +18,18 @@ describe('templateCompile', () => {
     temp.compile();
     expect(temp.render({ show: true, title: 'hello', before: '<div>xx</div>' }))
       .toMatchInlineSnapshot(`
-      "
-          <html>
-            <head>hello</head>
-            <body>
-
-              <div>xx</div>
-
-                <div>root</div>
-
-            </body>
-          </html>
-          "
-    `);
+        "
+            <html>
+              <head>hello</head>
+              <body>
+                
+                <div>xx</div>
+                
+                  <div>root</div>
+                
+              </body>
+            </html>
+            "
+      `);
   });
 });
