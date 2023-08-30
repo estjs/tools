@@ -63,7 +63,7 @@ export function isWeakSet(o: any): boolean {
 export function isFile(o: any): boolean {
   return _toString.call(o) === '[object File]';
 }
-export function isStringNumber(value: string): value is StringNumber {
+export function isStringNumber(value: any): value is StringNumber {
   return !Number.isNaN(Number(value));
 }
 export function isNumberStr(str: string): str is StringNumber {
