@@ -20,3 +20,11 @@ declare global {
   }
 }
 export type StringNumber = `${number}`;
+export interface ParsedURL {
+  protocol?: string;
+  host?: string;
+  auth?: string;
+  pathname: string;
+  hash: string;
+  search: string;
+}

@@ -20,12 +20,7 @@ export function isMap(o: any): boolean {
   return _toString.call(o) === '[object Map]';
 }
 export function isNaN(o: any): boolean {
-  return (
-    Number.isNaN ||
-    function isNaN(input) {
-      return typeof input === 'number' && input !== input;
-    }
-  )(o);
+  return Number.isNaN(o);
 }
 export function isNull(o: any): boolean {
   return o === null;
@@ -84,4 +79,9 @@ export function isLowerCase(str: string) {
 export function isUpperCase(str: string) {
   const reg = /^[A-Z]+$/;
   return reg.test(str);
+}
+
+// 判断是否是个异步函数
+export function isAsyncFn(fn: Function): boolean {
+  return _toString.call(fn) === '[object AsyncFunction]';
 }
