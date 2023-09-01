@@ -30,6 +30,7 @@ export { asyncPool } from './promise/asyncPool';
 export { Logger } from './code/logger';
 export { filterParams } from './code/filterParams';
 export { templateCompile } from './code/tinyTemplateCompile';
+export { default as EventBus } from './code/eventBus';
 
 export { useWebp } from './dom/useWebp';
 export { calcFps } from './dom/calcFps';
