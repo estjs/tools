@@ -5,7 +5,7 @@ enum State {
   ESCAPED,
   RAW,
   COMMENT,
-  LITERAL
+  LITERAL,
 }
 
 const REGEXP = /(<%%|%%>|<%=|<%-|<%#|<%|%>)/;
@@ -113,11 +113,11 @@ export class templateCompile {
           break;
         case escpStart:
           this.state = State.LITERAL;
-          this.source += ';__append(\'<%\');\n';
+          this.source += ";__append('<%');\n";
           break;
         case escpEnd:
           this.state = State.LITERAL;
-          this.source += ';__append(\'%>\');\n';
+          this.source += ";__append('%>');\n";
           break;
         case end:
           this.state = undefined;
@@ -159,7 +159,7 @@ function transformString(str: string) {
   str = str.replace(/\r/g, '\\r');
 
   // 转换单引号
-  str = str.replace(/'/g, '\\\'');
+  str = str.replace(/'/g, "\\'");
   return str;
 }
 

@@ -1,4 +1,5 @@
 import { Logger } from '../src/code/logger';
+
 const name = '@estjs/tool';
 
 export const clc = {
@@ -14,7 +15,6 @@ let outputData = '';
 const storeLog = (inputs: any) => (outputData += inputs);
 
 describe('logger', () => {
-
   test('console log', () => {
     outputData = '';
     const logger = new Logger();
@@ -29,6 +29,4 @@ describe('logger', () => {
     logger.log('hello');
     expect(outputData).toBe(clc.green('[@estjs/tool]: hello'));
   });
-
 });
-

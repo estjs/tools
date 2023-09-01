@@ -15,4 +15,3 @@ export function filterParams(params: { [key in string]: any }, trim = true) {
   });
   return res;
 }
-

@@ -1,11 +1,22 @@
-export function throttle(fn: Function, stop: number) {
-  let start = 0;
-  return function (this: unknown, args?: unknown) {
-    const end = Date.now();
-    if (end - start >= stop) {
-      const result = fn.call(this, args);
-      start = end;
-      return result;
+/**
+ * 节流函数
+ * @param func
+ * @param wait
+ */
+export function throttle<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number,
+): (...args: Parameters<T>) => void {
+  let isThrottled = false;
+
+  return function throttled(...args: Parameters<T>): void {
+    if (!isThrottled) {
+      func(...args);
+      isThrottled = true;
+
+      setTimeout(() => {
+        isThrottled = false;
+      }, wait);
     }
   };
 }

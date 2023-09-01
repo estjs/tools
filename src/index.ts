@@ -4,6 +4,9 @@ export { curry } from './fn/curry';
 export { debounce } from './fn/debounce';
 export { throttle } from './fn/throttle';
 export { noop } from './fn/noop';
+export * from './fn/defineConstants';
+export { filterNotValue } from './fn/filterNotValue';
+export { getValueByPath, setValueByPath } from './fn/getValueByPath';
 
 export { ArrRemove } from './array/ArrRemove';
 export { uniqueArray } from './array/uniqueArray';
@@ -16,7 +19,9 @@ export { hasCn } from './string/hasCn';
 export { escapeHtml } from './string/escapeHtml';
 export { randomColor } from './string/randomColor';
 export { unescapeHtml } from './string/unescapeHtml';
-export { dateFormater } from './string/dateFormater';
+export { dateFormatter } from './string/dateFormatter';
+export { humanize } from './string/humanize';
+export { uuid } from './string/uuid';
 
 export * from './is/isEmpty';
 export * from './is/isType';
@@ -28,6 +33,7 @@ export { sleep } from './promise/sleep';
 export { asyncPool } from './promise/asyncPool';
 
 export { Logger } from './code/logger';
+export * from './code/cache';
 export { filterParams } from './code/filterParams';
 export { templateCompile } from './code/tinyTemplateCompile';
 export { default as EventBus } from './code/eventBus';
@@ -38,3 +44,7 @@ export { monitorPef } from './dom/monitorPef';
 export { addEventListener } from './dom/addEventListener';
 export { useResizeObserver } from './dom/useResizeObserver';
 
+export { uniqueArrayObject } from './obj/uniqueArrayObject';
+export * from './obj/extends';
+export * from './obj/clone';
+export { numToMoney } from './common';

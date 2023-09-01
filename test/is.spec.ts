@@ -1,19 +1,28 @@
 import {
   isArray,
-  isBool, isDate,
+  isBool,
+  isDate,
   isEmail,
-  isFn, isIdCard, isMap,
+  isFn,
+  isIdCard,
+  isMap,
   isMobile,
-  isNaN, isNull,
-  isNumber, isPlainObject,
-  isPromise, isReg,
-  isSet, isString,
-  isSymbol, isUndefined,
-  isWeakMap, isWeakSet,
+  isNaN,
+  isNull,
+  isNumber,
+  isPlainObject,
+  isPromise,
+  isReg,
+  isSet,
+  isString,
+  isStringNumber,
+  isSymbol,
+  isUndefined,
+  isWeakMap,
+  isWeakSet,
 } from '../src';
 
 describe('is type', () => {
-
   it('is isArray', () => {
     expect(isArray([])).toBe(true);
     expect(isArray([1, 2, 3])).toBe(true);
@@ -24,12 +33,20 @@ describe('is type', () => {
     expect(isBool(true)).toBe(true);
     expect(isBool(1)).toBe(false);
   });
+  it('is string number', () => {
+    expect(isStringNumber('123.123')).toBe(false);
+    expect(isStringNumber('123.123e3')).toBe(false);
+    expect(isStringNumber('123')).toBe(true);
+    expect(isStringNumber(123)).toBe(false);
+    expect(isStringNumber(123.123)).toBe(false);
+    expect(isStringNumber(123.123e3)).toBe(false);
+  });
   it('is isDate', () => {
     expect(isDate(new Date())).toBe(true);
     expect(isDate(123)).toBe(false);
   });
   it('is isFn', () => {
-    expect(isFn(()=>{})).toBe(true);
+    expect(isFn(() => {})).toBe(true);
     expect(isFn(new Function())).toBe(true);
   });
   it('is isMap', () => {
@@ -53,7 +70,7 @@ describe('is type', () => {
     expect(isPlainObject({})).toBe(true);
   });
   it('is isPromise', () => {
-    expect(isPromise(new Promise(()=>{}))).toBe(true);
+    expect(isPromise(new Promise(() => {}))).toBe(true);
     expect(isPromise(Promise.resolve())).toBe(true);
   });
   it('is isReg', () => {
@@ -80,7 +97,6 @@ describe('is type', () => {
   });
 });
 describe('is other', () => {
-
   it('is email', () => {
     expect(isEmail(123)).toBe(false);
     expect(isEmail('jiangxd2016@gmail.com')).toBe(true);
