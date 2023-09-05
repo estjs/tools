@@ -19,13 +19,8 @@ export function isFn(val: any): boolean {
 export function isMap(val: any): boolean {
   return _toString.call(val) === '[object Map]';
 }
-export function isNaN(val: any): boolean {
-  return (
-    Number.isNaN ||
-    function isNaN(input) {
-      return typeof input === 'number' && input !== input;
-    }
-  )(val);
+export function isNaN(o: any): boolean {
+  return Number.isNaN(o);
 }
 export function isNull(val: any): boolean {
   return val === null;
@@ -88,3 +83,17 @@ export function isUpperCase(str: string) {
   const reg = /^[A-Z]+$/;
   return reg.test(str);
 }
+
+// 判断是否是个异步函数
+export function isAsyncFn(fn: Function): boolean {
+  return _toString.call(fn) === '[object AsyncFunction]';
+}
+export const isPrimitive = (
+  val: unknown,
+): val is string | number | boolean | symbol | null | undefined =>
+  ['string', 'number', 'boolean', 'symbol', 'null', 'undefined'].includes(typeof val);
+
+/**
+ * "If the value is null or undefined, return true, otherwise return false."
+ */
+export const isNil = (val: unknown): val is null | undefined => val === null || val === undefined;
