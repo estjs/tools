@@ -1,6 +1,6 @@
 export class EventBus {
   subs = new Map();
-  instance: eventBus | null = null;
+  instance: EventBus | null = null;
   constructor() {
     if (!this.instance) {
       this.instance = this;
