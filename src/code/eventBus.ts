@@ -1,4 +1,4 @@
-class eventBus {
+export class EventBus {
   subs = new Map();
   instance: eventBus | null = null;
   constructor() {
@@ -32,5 +32,3 @@ class eventBus {
     }
   }
 }
-
-export default new eventBus();

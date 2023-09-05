@@ -1,11 +1,11 @@
 import { _toString } from '../common';
 import type { StringNumber } from '../types';
 
-export function isArray(o: any): boolean {
-  return Array.isArray(o);
+export function isArray(val: any): boolean {
+  return Array.isArray(val);
 }
-export function isBlob(o: any): boolean {
-  return _toString.call(o) === '[object Blob]';
+export function isBlob(val: any): boolean {
+  return _toString.call(val) === '[object Blob]';
 }
 export function isBool(value: any): boolean {
   return typeof value === 'boolean';
@@ -13,58 +13,61 @@ export function isBool(value: any): boolean {
 export function isDate(d: any): boolean {
   return d instanceof Date;
 }
-export function isFn(o: any): boolean {
-  return typeof o === 'function';
+export function isFn(val: any): boolean {
+  return typeof val === 'function';
 }
-export function isMap(o: any): boolean {
-  return _toString.call(o) === '[object Map]';
+export function isMap(val: any): boolean {
+  return _toString.call(val) === '[object Map]';
 }
-export function isNaN(o: any): boolean {
+export function isNaN(val: any): boolean {
   return (
     Number.isNaN ||
     function isNaN(input) {
       return typeof input === 'number' && input !== input;
     }
-  )(o);
+  )(val);
 }
-export function isNull(o: any): boolean {
-  return o === null;
+export function isNull(val: any): boolean {
+  return val === null;
 }
-export function isNumber(o: any): boolean {
-  return typeof o === 'number';
+export function isNumber(val: any): boolean {
+  return typeof val === 'number';
 }
-export function isPlainObject(o: any): boolean {
-  return _toString.call(o) === '[object Object]';
+export function isPlainObject(val: any): boolean {
+  return _toString.call(val) === '[object Object]';
 }
-export function isPromise(o: any): boolean {
-  return _toString.call(o) === '[object Promise]';
+export function isPromise(val: any): boolean {
+  return _toString.call(val) === '[object Promise]';
 }
-export function isReg(o: any): boolean {
-  return typeof o === 'object' && o.constructor === RegExp;
+export function isReg(val: any): boolean {
+  return typeof val === 'object' && val.constructor === RegExp;
 }
-export function isSet(o: any): boolean {
-  return _toString.call(o) === '[object Set]';
+export function isSet(val: any): boolean {
+  return _toString.call(val) === '[object Set]';
 }
-export function isString(o: any): boolean {
-  return typeof o === 'string';
+export function isString(val: any): boolean {
+  return typeof val === 'string';
 }
-export function isSymbol(o: any): boolean {
-  return typeof o === 'symbol';
+export function isSymbol(val: any): boolean {
+  return typeof val === 'symbol';
 }
-export function isUndefined(o: any): boolean {
-  return typeof o === 'undefined';
+export function isUndefined(val: any): boolean {
+  return typeof val === 'undefined';
 }
-export function isWeakMap(o: any): boolean {
-  return _toString.call(o) === '[object WeakMap]';
+export function isWeakMap(val: any): boolean {
+  return _toString.call(val) === '[object WeakMap]';
 }
-export function isWeakSet(o: any): boolean {
-  return _toString.call(o) === '[object WeakSet]';
+export function isWeakSet(val: any): boolean {
+  return _toString.call(val) === '[object WeakSet]';
 }
-export function isFile(o: any): boolean {
-  return _toString.call(o) === '[object File]';
+export function isFile(val: any): boolean {
+  return _toString.call(val) === '[object File]';
 }
-export function isStringNumber(value: any): value is StringNumber {
-  return !Number.isNaN(Number(value));
+export function isStringNumber(val: any): val is StringNumber {
+  if (!isString(val)) {
+    return false;
+  }
+  return !Number.isNaN(Number(val));
 }
 export function isNumberStr(str: string): str is StringNumber {
   return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str);

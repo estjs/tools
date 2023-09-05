@@ -34,8 +34,8 @@ describe('is type', () => {
     expect(isBool(1)).toBe(false);
   });
   it('is string number', () => {
-    expect(isStringNumber('123.123')).toBe(false);
-    expect(isStringNumber('123.123e3')).toBe(false);
+    expect(isStringNumber('123.123')).toBe(true);
+    expect(isStringNumber('123.123e3')).toBe(true);
     expect(isStringNumber('123')).toBe(true);
     expect(isStringNumber(123)).toBe(false);
     expect(isStringNumber(123.123)).toBe(false);
