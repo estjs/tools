@@ -15,6 +15,7 @@ export function dateFormatter(time?: string | number, fmt?: string): string {
     'd+': date.getDate().toString(),
     'D+': date.getDate().toString(),
     'H+': date.getHours().toString(),
+    'h+': ((date.getHours() + 24) % 12 || 12) + '',
     'm+': date.getMinutes().toString(),
     'S+': date.getSeconds().toString(),
     's+': date.getSeconds().toString(),

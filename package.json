@@ -32,6 +32,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "typecheck": "tsc --noEmit",
+    "play":"pnpm run --filter playground dev",
     "coverage": "vitest run --coverage",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --tag --push && pnpm publish --access public"

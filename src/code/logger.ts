@@ -8,7 +8,7 @@ export const clc = {
   green: (text: string) => `\u001B[32m${text}\u001B[39m`,
   yellow: (text: string) => `\u001B[33m${text}\u001B[39m`,
   red: (text: string) => `\u001B[31m${text}\u001B[39m`,
-  blue: (text: string) => `\u001B[30m${text}\u001B[39m`,
+  blue: (text: string) => `\u001B[34m${text}\u001B[39m`,
   magentaBright: (text: string) => `\u001B[95m${text}\u001B[39m`,
   cyanBright: (text: string) => `\u001B[96m${text}\u001B[39m`,
 };
@@ -17,9 +17,10 @@ export class Logger {
   protected name = '';
   protected time = false;
   private static localInstance: Logger;
+
   constructor(name = '', time = false) {
-    this.name = name || '';
-    this.time = time || false;
+    this.name = name;
+    this.time = time;
   }
 
   public log(...args: any[]) {
@@ -44,41 +45,39 @@ export class Logger {
 
   private logger(Level: LogLevel, args: any[]) {
     const fn = this.getConsoleFn(Level);
-    const color = this.getColorByLogLevel(Level);
-    const time = this.time ? `[${dateFormatter()}] ` : '';
+    const time = this.time ? `[${dateFormatter('', 'YYYY-MM-DD HH:mm:ss')}] ` : '';
     const name = this.name ? `[${this.name}]` : '';
-    const info = `${time}${name}${time || name ? ': ' : ''}${args}`;
-
-    fn(color(info));
+    const color = this.getColorByLogLevel(Level);
+    const info = `${time}${name}${time || name ? ': ' : ''}${color(Level)} ${args.join(' ')}`;
+    fn(info);
   }
 
   private getConsoleFn(level: LogLevel): Function {
-    switch (level) {
-      case 'debug':
-        return console.debug;
-      case 'warn':
-        return console.warn;
-      case 'error':
-        return console.error;
-      case 'info':
-        return console.info;
-      default:
-        return console.log;
-    }
+    const consoleFnMap: Record<LogLevel, Function> = {
+      debug: console.debug.bind(console),
+      warn: console.warn.bind(console),
+      error: console.error.bind(console),
+      info: console.info.bind(console),
+      log: console.log.bind(console),
+    };
+    return consoleFnMap[level] || console.log.bind(console);
   }
 
   private getColorByLogLevel(level: LogLevel) {
-    switch (level) {
-      case 'debug':
-        return clc.magentaBright;
-      case 'warn':
-        return clc.yellow;
-      case 'error':
-        return clc.red;
-      case 'info':
-        return clc.blue;
-      default:
-        return clc.green;
+    const colorMap = {
+      debug: clc.magentaBright,
+      warn: clc.yellow,
+      error: clc.red,
+      info: clc.blue,
+      log: clc.cyanBright,
+    };
+    return colorMap[level] || clc.green;
+  }
+
+  static getInstance(name = '', time = false) {
+    if (!this.localInstance) {
+      this.localInstance = new Logger(name, time);
     }
+    return this.localInstance;
   }
 }
