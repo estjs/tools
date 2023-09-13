@@ -1,3 +1,11 @@
+export interface ILogger {
+  log(...args: any[]): void;
+  info(...args: any[]): void;
+  error(...args: any[]): void;
+  warn(...args: any[]): void;
+  debug(...args: any[]): void;
+}
+
 export type DeepPartial<T> = T extends object
   ? {
       [P in keyof T]?: DeepPartial<T[P]>;
@@ -18,6 +26,7 @@ declare global {
     oCancelAnimationFrame: (handle: number) => void;
     msCancelAnimationFrame: (handle: number) => void;
   }
+  const logger: ILogger;
 }
 export type StringNumber = `${number}`;
 export interface ParsedURL {

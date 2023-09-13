@@ -1,4 +1,5 @@
 import { dateFormatter } from '../string/dateFormatter';
+import type { ILogger } from '../types';
 
 // 定义日志级别类型
 export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
@@ -6,7 +7,7 @@ export type LogLevel = 'log' | 'error' | 'warn' | 'debug' | 'info';
 // 支持的日志级别列表
 export const LOG_LIST: LogLevel[] = ['log', 'error', 'warn', 'debug', 'info'];
 
-export class Logger {
+export class Logger implements ILogger {
   private name: string;
   private time: boolean;
 
@@ -72,4 +73,10 @@ export class Logger {
         return console.log.bind(console);
     }
   }
+}
+
+export function createLogger(name: string, time = false) {
+  const logger = new Logger(name, time);
+  const g = globalThis as unknown as { logger: ILogger };
+  g['logger'] = logger;
 }

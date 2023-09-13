@@ -1,4 +1,4 @@
-export function toThousands(num: number | string, toFixedCount: number = 2) {
+export function toThousands(num: number | string, toFixedCount = 2) {
   let numStr = num + '';
 
   const regex: any[] = !numStr.includes('.')

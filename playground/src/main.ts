@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { createLogger } from '@estjs/tools';
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from 'virtual:generated-pages';
 import App from './App.vue';
@@ -6,7 +7,6 @@ import App from './App.vue';
 import '@unocss/reset/tailwind.css';
 import './styles/main.css';
 import 'uno.css';
-import { Logger } from '../../dist';
 
 const app = createApp(App);
 const router = createRouter({
@@ -15,7 +15,8 @@ const router = createRouter({
 });
 app.use(router);
 app.mount('#app');
-const log = new Logger('test', true);
+
+createLogger('test', true);
 
 const obj = {
   1: {
@@ -28,9 +29,9 @@ const obj = {
     },
   },
 };
-log.log('123');
-log.info('123', obj);
-log.error('123', obj);
-log.warn('123');
-log.debug('123');
+logger.log('123');
+logger.info('123', obj);
+logger.error('123', obj);
+logger.warn('123');
+logger.debug('123');
 console.info(obj);
