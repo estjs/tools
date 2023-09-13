@@ -1,6 +1,6 @@
 {
   "name": "@estjs/tools",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "author": "jiangxd <jiangxd2016@gmail.com>",
   "license": "MIT",
   "packageManager": "pnpm@8.7.1",
@@ -32,7 +32,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "typecheck": "tsc --noEmit",
-    "play":"pnpm run --filter playground dev",
+    "play": "pnpm run --filter playground dev",
     "coverage": "vitest run --coverage",
     "prepublishOnly": "pnpm run build",
     "release": "bumpp --commit --tag --push && pnpm publish --access public"
