@@ -33,3 +33,4 @@ log.info('123', obj);
 log.error('123', obj);
 log.warn('123');
 log.debug('123');
+console.info(obj);
