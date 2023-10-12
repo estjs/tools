@@ -1,8 +1,3 @@
-/**
- * @param formater
- * @param time
- * @returns
- */
 export function dateFormatter(time?: string | number, fmt?: string): string {
   const date = time ? new Date(time) : new Date();
 

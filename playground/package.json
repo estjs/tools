@@ -1,7 +1,7 @@
 {
   "name": "playground",
   "private": true,
-  "packageManager": "pnpm@8.7.5",
+  "packageManager": "pnpm@8.9.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite --port 3333 --open",
@@ -11,27 +11,27 @@
   },
   "dependencies": {
     "@estjs/tools": "workspace:*",
-    "@vueuse/core": "^10.4.1",
+    "@vueuse/core": "^10.5.0",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@estjs/eslint-config": "^0.8.2",
+    "@estjs/eslint-config": "^0.8.16",
     "@iconify-json/carbon": "^1.1.21",
-    "@types/node": "^18.17.15",
-    "@unocss/reset": "^0.55.7",
-    "@vitejs/plugin-vue": "^4.3.4",
+    "@types/node": "^20.8.4",
+    "@unocss/reset": "^0.56.5",
+    "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/test-utils": "^2.4.1",
-    "eslint": "^8.49.0",
+    "eslint": "^8.51.0",
     "jsdom": "^22.1.0",
     "typescript": "^5.2.2",
-    "unocss": "^0.55.7",
+    "unocss": "^0.56.5",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
-    "vite": "^4.4.9",
+    "vite": "^4.4.11",
     "vite-plugin-pages": "^0.31.0",
-    "vitest": "^0.34.4",
-    "vue-tsc": "^1.8.11"
+    "vitest": "^0.34.6",
+    "vue-tsc": "^1.8.19"
   }
 }

@@ -1,8 +1,3 @@
-/**
- * humanize
- * @param bytes
- * @returns
- */
 export function humanize(bytes: number) {
   if (bytes === 0) {
     return '0 B';
