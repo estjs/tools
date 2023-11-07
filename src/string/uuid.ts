@@ -2,9 +2,9 @@ import { isBower } from '../is/isType';
 
 /**
  *  generate UUID
- * @returns {string} uuid
  * @see https://stackoverflow.com/questions/105034/how-do-i-create-a-guid-uuid
  * @bench https://jsbench.github.io/#80610cde9bc93d0f3068e5793e60ff11
+ * @returns { string }
  */
 export function uuid() {
   if (!isBower()) {
