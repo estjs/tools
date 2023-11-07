@@ -4,3 +4,4 @@ export { filterParams } from './filterParams';
 export { templateCompile } from './tinyTemplateCompile';
 export { EventBus } from './eventBus';
 export * from './parseUrl';
+export { hexToRGB } from './hexToRgba';
