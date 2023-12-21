@@ -47,6 +47,6 @@ describe('templateCompile', () => {
   });
   it('should throw an error when tags are not closed', () => {
     const template = new templateCompile('<% if (true) { %>Hello, world!');
-    expect(() => template.compile()).toThrowErrorMatchingInlineSnapshot('"Unexpected token \')\'"');
+    expect(() => template.compile()).toThrowErrorMatchingInlineSnapshot(`[SyntaxError: Unexpected token ')']`);
   });
 });

@@ -23,7 +23,7 @@ describe('string', () => {
       unescapeHtml(
         '&lt;html&gt;&lt;a link=&quot;#test/?query=1&quot;&gt;&lt;/a&gt;&lt;&lt;html&gt;',
       ),
-    ).toMatchInlineSnapshot('"<html><a link=\\"#test/?query=1\\"></a><<html>"');
+    ).toMatchInlineSnapshot(`"<html><a link="#test/?query=1"></a><<html>"`);
   });
 
   it('hasCn', () => {
