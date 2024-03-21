@@ -1,4 +1,4 @@
-import { uniqueArrayObject } from '../src';
+import { uniqueArrayObject } from '../..';
 
 describe('uniqueArrayObject', () => {
   it('returns an empty array if the input array is empty', () => {

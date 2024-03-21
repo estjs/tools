@@ -2,10 +2,11 @@ import { isEmptyObj } from '../is/isEmpty';
 import { isPlainObject } from '../is/isType';
 
 /**
- * filter value
- * @param input {Record<string,any>}
- * @param deep {boolean}
- * @returns {Record<string,any>}
+ * Filters out any values that are considered falsy in the input object, optionally recursively.
+ *
+ * @param {Record<string, any>} input - The input object to filter values from.
+ * @param {boolean} deep - (Optional) Flag to indicate whether to filter recursively.
+ * @return {Record<string, any>} The object with falsy values filtered out.
  */
 export function filterNotValue(input: Record<string, any>, deep = false): Record<string, any> {
   if (!input || !isPlainObject(input)) {

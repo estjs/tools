@@ -8,5 +8,5 @@ export function humanize(bytes: number) {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
   const val = bytes / k ** (i > sizeLen - 1 ? sizeLen - 1 : i);
-  return val.toPrecision(val >= 1000 ? 4 : 3) + ' ' + (sizes[i] || 'YB');
+  return `${val.toPrecision(val >= 1000 ? 4 : 3)} ${sizes[i] || 'YB'}`;
 }

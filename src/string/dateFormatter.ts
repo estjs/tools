@@ -10,13 +10,13 @@ export function dateFormatter(time?: string | number, fmt?: string): string {
     'd+': date.getDate().toString(),
     'D+': date.getDate().toString(),
     'H+': date.getHours().toString(),
-    'h+': ((date.getHours() + 24) % 12 || 12) + '',
+    'h+': `${(date.getHours() + 24) % 12 || 12}`,
     'm+': date.getMinutes().toString(),
     'S+': date.getSeconds().toString(),
     's+': date.getSeconds().toString(),
   };
   for (const k in opt) {
-    const ret = new RegExp('(' + k + ')').exec(fmt);
+    const ret = new RegExp(`(${k})`).exec(fmt);
     if (ret) {
       fmt = fmt.replace(ret[1], ret[1].length === 1 ? opt[k] : opt[k].padStart(ret[1].length, '0'));
     }

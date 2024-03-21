@@ -16,11 +16,7 @@ export function shallowEqualObjects(a: any, b: any): boolean {
     // Check if the values at the current key are not equal and
     // are not objects. If they are objects, shallow equality is not
     // checked for nested objects.
-    if (
-      a[key] !== b[key] &&
-      (typeof a[key] !== 'object' || typeof b[key] !== 'object')
-    ) {
-
+    if (a[key] !== b[key] && (typeof a[key] !== 'object' || typeof b[key] !== 'object')) {
       return false;
     }
   }

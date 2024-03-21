@@ -15,7 +15,7 @@ export function asyncPool(limit = 4, tasks: Function[]) {
           p.then(res => {
             results[index] = res;
             run();
-          }).catch(reason => reject(reason));
+          }).catch(error => reject(error));
         };
         run();
       }),

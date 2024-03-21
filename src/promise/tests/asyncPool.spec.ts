@@ -1,6 +1,6 @@
-import { asyncPool } from '../src';
+import { asyncPool } from '../..';
 
-describe('Test asyncPool', () => {
+describe('test asyncPool', () => {
   it('asyncPool test', async () => {
     function delay(interval: number) {
       return () =>

@@ -1,4 +1,4 @@
-import { localCache, sessionCache } from '../src';
+import { localCache, sessionCache } from '../..';
 
 describe('sessionCache', () => {
   beforeEach(() => {
@@ -6,7 +6,7 @@ describe('sessionCache', () => {
     sessionStorage.clear();
   });
 
-  test('set and get value', () => {
+  it('set and get value', () => {
     const key = 'testKey';
     const value = 'testValue';
 
@@ -16,7 +16,7 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBe(value);
   });
 
-  test('set and get JSON value', () => {
+  it('set and get JSON value', () => {
     const key = 'testKey';
     const jsonValue = { name: 'John', age: 30 };
 
@@ -26,7 +26,7 @@ describe('sessionCache', () => {
     expect(retrievedJsonValue).toEqual(jsonValue);
   });
 
-  test('remove value', () => {
+  it('remove value', () => {
     const key = 'testKey';
     const value = 'testValue';
 
@@ -37,7 +37,7 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBeNull();
   });
 
-  test('return null for invalid key', () => {
+  it('return null for invalid key', () => {
     const key = null;
     const value = 'testValue';
 
@@ -47,7 +47,7 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBeNull();
   });
 
-  test('return null for missing value', () => {
+  it('return null for missing value', () => {
     const key = 'testKey';
 
     const retrievedValue = sessionCache.get(key);
@@ -62,7 +62,7 @@ describe('sessionCache', () => {
     localStorage.clear();
   });
 
-  test('set and get value', () => {
+  it('set and get value', () => {
     const key = 'testKey';
     const value = 'testValue';
 
@@ -72,7 +72,7 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBe(value);
   });
 
-  test('set and get JSON value', () => {
+  it('set and get JSON value', () => {
     const key = 'testKey';
     const jsonValue = { name: 'John', age: 30 };
 
@@ -82,7 +82,7 @@ describe('sessionCache', () => {
     expect(retrievedJsonValue).toEqual(jsonValue);
   });
 
-  test('remove value', () => {
+  it('remove value', () => {
     const key = 'testKey';
     const value = 'testValue';
 
@@ -93,7 +93,7 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBeNull();
   });
 
-  test('return null for invalid key', () => {
+  it('return null for invalid key', () => {
     const key = null;
     const value = 'testValue';
 
@@ -103,7 +103,7 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBeNull();
   });
 
-  test('return null for missing value', () => {
+  it('return null for missing value', () => {
     const key = 'testKey';
 
     const retrievedValue = localCache.get(key);

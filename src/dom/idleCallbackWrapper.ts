@@ -1,5 +1,5 @@
-import type { Deadline } from '../types';
 import { isFn } from '../is/isType';
+import type { Deadline } from '../types';
 
 type Timeout = number | (() => void);
 
@@ -22,7 +22,7 @@ export function idleCallbackWrapper(
           handler({
             didTimeout: false,
             timeRemaining() {
-              return Math.max(0, 50.0 - (Date.now() - startTime));
+              return Math.max(0, 50 - (Date.now() - startTime));
             },
           }),
         1,

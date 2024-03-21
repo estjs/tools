@@ -153,13 +153,13 @@ export class templateCompile {
 
 function transformString(str: string) {
   // 转义\\
-  str = str.replace(/\\/g, '\\\\');
+  str = str.replaceAll('\\', '\\\\');
   // 转换换行符
-  str = str.replace(/\n/g, '\\n');
-  str = str.replace(/\r/g, '\\r');
+  str = str.replaceAll('\n', '\\n');
+  str = str.replaceAll('\r', '\\r');
 
   // 转换单引号
-  str = str.replace(/'/g, "\\'");
+  str = str.replaceAll("'", "\\'");
   return str;
 }
 

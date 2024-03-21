@@ -1,4 +1,4 @@
-import { toThousands } from '../src';
+import { toThousands } from '../..';
 
 describe('toThousands', () => {
   it('should work with number', () => {

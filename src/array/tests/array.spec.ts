@@ -1,7 +1,7 @@
-import { ArrRemove, replaceAll, uniqueArray } from '../src';
+import { ArrRemove, replaceAll, uniqueArray } from '../..';
 
 describe('array', () => {
-  it('ArrRemove', () => {
+  it('arrRemove', () => {
     expect(ArrRemove([1, 2, 3], 2)).toStrictEqual([1, 3]);
     expect(ArrRemove([1, 2, 3], 4)).toStrictEqual([1, 2, 3]);
   });

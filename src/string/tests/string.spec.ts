@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { dateFormatter, escapeHtml, hasCn, unescapeHtml } from '../src';
-import { humanize } from '../src/string/humanize';
+import { dateFormatter, escapeHtml, hasCn, unescapeHtml } from '../..';
+import { humanize } from '../humanize';
 
 describe('string', () => {
   it('formater', () => {

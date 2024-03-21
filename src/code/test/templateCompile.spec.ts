@@ -1,4 +1,4 @@
-import { templateCompile } from '../src/code/tinyTemplateCompile';
+import { templateCompile } from '../';
 
 describe('templateCompile', () => {
   it('should render plain text', () => {
@@ -47,6 +47,8 @@ describe('templateCompile', () => {
   });
   it('should throw an error when tags are not closed', () => {
     const template = new templateCompile('<% if (true) { %>Hello, world!');
-    expect(() => template.compile()).toThrowErrorMatchingInlineSnapshot(`[SyntaxError: Unexpected token ')']`);
+    expect(() => template.compile()).toThrowErrorMatchingInlineSnapshot(
+      `[SyntaxError: Unexpected token ')']`,
+    );
   });
 });

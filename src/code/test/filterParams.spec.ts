@@ -1,4 +1,4 @@
-import { filterParams } from '../src';
+import { filterParams } from '../..';
 
 describe('is type', () => {
   it('filterParams', () => {

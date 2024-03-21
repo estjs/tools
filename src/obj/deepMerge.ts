@@ -1,10 +1,11 @@
 import { isPlainObject } from '../is/isType';
 
 /**
- * 深合并
- * @param target 对象
- * @param sources 其他对象
- * @returns
+ * Merges multiple objects into a single object, deeply combining the properties of all the objects.
+ *
+ * @param {Record<any, any>} target - The target object to merge into
+ * @param {Record<any, any>[]} sources - The source objects to merge
+ * @return {Record<any, any>} The merged object
  */
 export function deepMerge(target: Record<any, any>, ...sources: Record<any, any>[]) {
   if (!isPlainObject(target)) {

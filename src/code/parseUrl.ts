@@ -22,7 +22,7 @@ export function parseURL(input = '', defaultProto?: string): ParsedURL {
   }
 
   const [protocol = '', auth, hostAndPath = ''] = (
-    input.replace(/\\/g, '/').match(/([^/:]+:)?\/\/([^/@]+@)?(.*)/) || []
+    input.replaceAll('\\', '/').match(/([^/:]+:)?\/\/([^/@]+@)?(.*)/) || []
   ).splice(1);
   const [host = '', path = ''] = (hostAndPath.match(/([^#/?]*)(.*)?/) || []).splice(1);
   const { pathname, search, hash } = parsePath(path);

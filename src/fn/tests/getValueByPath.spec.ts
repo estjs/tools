@@ -1,4 +1,4 @@
-import { getValueByPath, setValueByPath } from '../src/fn/getValueByPath';
+import { getValueByPath, setValueByPath } from '../getValueByPath';
 
 describe('getValueByPath', () => {
   it('should return undefined when no object is passed', () => {

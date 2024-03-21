@@ -78,5 +78,5 @@ export class Logger implements ILogger {
 export function createLogger(name: string, time = false) {
   const logger = new Logger(name, time);
   const g = globalThis as unknown as { logger: ILogger };
-  g['logger'] = logger;
+  g.logger = logger;
 }

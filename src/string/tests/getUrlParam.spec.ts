@@ -1,4 +1,4 @@
-import { getUrlParam } from '../src';
+import { getUrlParam } from '../..';
 
 describe('getUrlParam', () => {
   const url = 'www.xxx.com/?a=1&b=2&c=3';

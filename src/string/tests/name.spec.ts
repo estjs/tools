@@ -1,4 +1,4 @@
-import { isReserved, toKebabCase, toPascalCase } from '../src';
+import { isReserved, toKebabCase, toPascalCase } from '../..';
 
 describe('name', () => {
   it('capitalize', () => {

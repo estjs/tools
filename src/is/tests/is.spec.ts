@@ -20,7 +20,7 @@ import {
   isUndefined,
   isWeakMap,
   isWeakSet,
-} from '../src';
+} from '../..';
 
 describe('is type', () => {
   it('is isArray', () => {

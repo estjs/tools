@@ -1,4 +1,4 @@
-import { templateCompile } from '../src';
+import { templateCompile } from '..';
 
 describe('templateCompile', () => {
   it('templateCompile', () => {
@@ -22,11 +22,11 @@ describe('templateCompile', () => {
             <html>
               <head>hello</head>
               <body>
-                
+
                 <div>xx</div>
-                
+
                   <div>root</div>
-                
+
               </body>
             </html>
             "

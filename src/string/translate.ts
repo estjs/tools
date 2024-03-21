@@ -7,14 +7,14 @@ export function lowercase(str: string) {
 }
 
 export function isReserved(str: string) {
-  const c = (str + '').charCodeAt(0);
+  const c = `${str}`.charCodeAt(0);
   return c === 0x24 || c === 0x5f;
 }
 
 // 转换短横线命名
 // xxXXXxx => xx-xxx-xx
 export const toKebabCase = (string: string): string => {
-  return string.replace(/[A-Z]+/g, (match, offset) => {
+  return string.replaceAll(/[A-Z]+/g, (match, offset) => {
     return `${offset > 0 ? '-' : ''}${match.toLocaleLowerCase()}`;
   });
 };
@@ -23,7 +23,7 @@ export const toKebabCase = (string: string): string => {
 export const toPascalCase = (string: string): string => {
   return string
     .replace(/^./, match => match.toLocaleUpperCase())
-    .replace(/-(.)/g, (match, p1: string) => {
+    .replaceAll(/-(.)/g, (match, p1: string) => {
       return p1.toLocaleUpperCase();
     });
 };
