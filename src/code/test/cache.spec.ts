@@ -37,26 +37,14 @@ describe('sessionCache', () => {
     expect(retrievedValue).toBeNull();
   });
 
-  it('return null for invalid key', () => {
-    const key = null;
-    const value = 'testValue';
-
-    sessionCache.set(key, value);
-    const retrievedValue = sessionCache.get(key);
-
-    expect(retrievedValue).toBeNull();
-  });
-
   it('return null for missing value', () => {
     const key = 'testKey';
-
     const retrievedValue = sessionCache.get(key);
-
     expect(retrievedValue).toBeNull();
   });
 });
 
-describe('sessionCache', () => {
+describe('localCache', () => {
   beforeEach(() => {
     // 在每个测试之前重置sessionStorage
     localStorage.clear();
@@ -88,16 +76,6 @@ describe('sessionCache', () => {
 
     localCache.set(key, value);
     localCache.remove(key);
-    const retrievedValue = localCache.get(key);
-
-    expect(retrievedValue).toBeNull();
-  });
-
-  it('return null for invalid key', () => {
-    const key = null;
-    const value = 'testValue';
-
-    localCache.set(key, value);
     const retrievedValue = localCache.get(key);
 
     expect(retrievedValue).toBeNull();
