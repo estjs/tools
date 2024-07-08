@@ -105,13 +105,6 @@ describe('is other', () => {
     expect(isEmail('@xxxxx.xxxxxx')).toBe(false);
   });
 
-  it('is email', () => {
-    expect(isEmail(123)).toBe(false);
-    expect(isEmail('jiangxd2016@gmail.com')).toBe(true);
-    expect(isEmail('123456@qq.com')).toBe(true);
-    expect(isEmail('123456@xxxxx.xxxxxx')).toBe(true);
-    expect(isEmail('@xxxxx.xxxxxx')).toBe(false);
-  });
   it('is isIdCard', () => {
     expect(isIdCard('123')).toBe(false);
   });

@@ -1,8 +1,12 @@
+type FilterParams<T> = {
+  [K in keyof T as K extends `_${string}` ? never : K]: T[K] extends string ? string : T[K];
+};
 /**
- * @param params
- * @returns
+ * @param  {object} params 需要过滤的参数
+ * @param  {boolean} trim 是否需要去除空格
+ * @returns {object} 过滤后的参数
  */
-export function filterParams(params: { [key in string]: any }, trim = true) {
+export function filterParams<T>(params: T, trim = true): FilterParams<T> {
   const str = JSON.stringify(params);
   let res: any = {};
   res = JSON.parse(str, (key, val) => {

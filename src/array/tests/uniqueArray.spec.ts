@@ -1,4 +1,4 @@
-import { mergeArraysByUniqueKey } from "../uniqueArray";
+import { mergeArraysByUniqueKey } from '../uniqueArray';
 
 interface Person {
   id: number;
@@ -10,26 +10,26 @@ describe('mergeArraysByUniqueKey', () => {
     const array1: Person[] = [
       { id: 1, name: 'John' },
       { id: 2, name: 'Jane' },
-      { id: 3, name: 'Doe' }
+      { id: 3, name: 'Doe' },
     ];
 
     const array2: Person[] = [
       { id: 2, name: 'Jane' },
       { id: 3, name: 'Doe' },
-      { id: 4, name: 'Alice' }
+      { id: 4, name: 'Alice' },
     ];
 
     const mergedArray = mergeArraysByUniqueKey(array1, array2, 'id');
 
     // 验证合并后数组的长度是否正确
-    expect(mergedArray).toHaveLength(array1.length + array2.length - 1); // 因为id为2的对象重复了，所以长度减1
+    expect(mergedArray).toHaveLength(array1.length + array2.length - 2);
 
     // 验证合并后数组中的元素是否包含预期的内容
     expect(mergedArray).toEqual([
       { id: 1, name: 'John' },
       { id: 2, name: 'Jane' },
       { id: 3, name: 'Doe' },
-      { id: 4, name: 'Alice' }
+      { id: 4, name: 'Alice' },
     ]);
   });
 });
