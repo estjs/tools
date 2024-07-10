@@ -1,6 +1,6 @@
 {
   "name": "@estjs/tools",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "packageManager": "pnpm@9.5.0",
   "type": "module",
   "keywords": [],
