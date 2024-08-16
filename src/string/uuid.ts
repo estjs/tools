@@ -1,5 +1,3 @@
-import { isBower } from '../is/isType';
-
 /**
  * Generates a UUID (Universally Unique Identifier) using the bower algorithm.
  *
@@ -9,10 +7,6 @@ import { isBower } from '../is/isType';
  * @return {string} The generated UUID.
  */
 export function uuid() {
-  if (!isBower()) {
-    console.error('just support bower');
-    return;
-  }
   // @ts-expect-error
   return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replaceAll(/[018]/g, c =>
     (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
