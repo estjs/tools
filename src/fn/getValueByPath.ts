@@ -21,10 +21,10 @@ export const getValueByPath = <T = any>(
     return undefined;
   }
 
-  let temp = obj;
+  let temp: any = obj;
 
   for (let i = 0; i < keys.length; i++) {
-    if ((!isPlainObject(temp) && !isArray(temp)) || !keys[i]) {
+    if ((!isPlainObject(temp) && !isArray(temp)) || !(keys[i] in temp)) {
       return undefined;
     }
     if (i !== keys.length - 1) {
@@ -53,10 +53,10 @@ export const setValueByPath = (obj: Data | undefined, path: string | undefined, 
     return;
   }
 
-  let temp = obj;
+  let temp: any = obj;
 
   for (let i = 0; i < keys.length; i++) {
-    if ((!isPlainObject(temp) && !isArray(temp)) || !keys[i]) {
+    if ((!isPlainObject(temp) && !isArray(temp)) || !(keys[i] in temp)) {
       return;
     }
     if (i !== keys.length - 1) {
