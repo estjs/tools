@@ -1,3 +1,3 @@
 export function isEmail(s: string | number): boolean {
-  return /^[\w.-]+@[\dA-Za-z-]+(\.[\dA-Za-z-]+)*\.[\dA-Za-z]{2,6}$/.test(s.toString());
+  return /^[\w.-]+@[\da-z-]+(\.[\da-z-]+)*\.[\da-z]{2,6}$/i.test(s.toString());
 }

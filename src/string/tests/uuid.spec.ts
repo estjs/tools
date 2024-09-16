@@ -1,9 +1,9 @@
-import { uuid } from "../uuid";
+import { uuid } from '../uuid';
 
 describe('uuid', () => {
   it('should generate a valid UUID', () => {
     const generatedUUID = uuid();
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    const uuidRegex = /^[\da-f]{8}-[\da-f]{4}-4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i;
 
     expect(generatedUUID).toMatch(uuidRegex);
   });
@@ -16,7 +16,7 @@ describe('uuid', () => {
   });
 
   it('should use crypto.getRandomValues', () => {
-    const spy = vi.spyOn(crypto, 'getRandomValues').mockImplementation((array) => {
+    const spy = vi.spyOn(crypto, 'getRandomValues').mockImplementation(array => {
       array[0] = 0xff; // Set a predictable value for testing
       return array;
     });

@@ -1,4 +1,4 @@
-export function isEmptyObj(value: Object): boolean {
+export function isEmptyObj(value: object): boolean {
   return Object.getOwnPropertyNames(value).length === 0;
 }
 
@@ -12,6 +12,6 @@ export function isEmptyStr(value: string): boolean {
 export function isEmptySet(value: Set<unknown>): boolean {
   return value.size === 0;
 }
-export function isEmptyMap(value: Map<Object, unknown>): boolean {
+export function isEmptyMap(value: Map<object, unknown>): boolean {
   return value.size === 0;
 }

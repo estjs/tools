@@ -1,71 +1,71 @@
 import { _toString } from '../common';
 import type { StringNumber } from '../types';
 
-export function isArray(val: any): boolean {
+export function isArray(val: unknown): val is Array<unknown> {
   return Array.isArray(val);
 }
-export function isBlob(val: any): boolean {
+export function isBlob(val: unknown): val is Blob {
   return _toString.call(val) === '[object Blob]';
 }
-export function isBool(value: any): boolean {
+export function isBool(value: unknown): value is boolean {
   return typeof value === 'boolean';
 }
-export function isDate(d: any): boolean {
-  return d instanceof Date;
+export function isDate(val: unknown): val is Date {
+  return val instanceof Date;
 }
-export function isFn(val: any): boolean {
+export function isFn(val: unknown): val is Function {
   return typeof val === 'function';
 }
-export function isMap(val: any): boolean {
+export function isMap(val: unknown): val is Map<unknown, unknown> {
   return _toString.call(val) === '[object Map]';
 }
-export function isNaN(o: any): boolean {
-  return Number.isNaN(o);
+export function isNaN(val: unknown) {
+  return Number.isNaN(val);
 }
-export function isNull(val: any): boolean {
+export function isNull(val: unknown): boolean {
   return val === null;
 }
-export function isNumber(val: any): boolean {
+export function isNumber(val: unknown): boolean {
   return typeof val === 'number';
 }
-export function isPlainObject(val: any): boolean {
+export function isPlainObject(val: unknown): boolean {
   return _toString.call(val) === '[object Object]';
 }
-export function isPromise(val: any): boolean {
+export function isPromise(val: unknown): boolean {
   return _toString.call(val) === '[object Promise]';
 }
-export function isReg(val: any): boolean {
-  return typeof val === 'object' && val.constructor === RegExp;
+export function isReg(val: unknown): val is RegExp {
+  return typeof val === 'object' && val?.constructor === RegExp;
 }
-export function isSet(val: any): boolean {
+export function isSet(val: unknown): val is Set<unknown> {
   return _toString.call(val) === '[object Set]';
 }
-export function isString(val: any): boolean {
+export function isString(val: unknown): val is string {
   return typeof val === 'string';
 }
-export function isSymbol(val: any): boolean {
+export function isSymbol(val: unknown): val is symbol {
   return typeof val === 'symbol';
 }
-export function isUndefined(val: any): boolean {
+export function isUndefined(val: unknown): val is undefined {
   return typeof val === 'undefined';
 }
-export function isWeakMap(val: any): boolean {
+export function isWeakMap(val: unknown): val is WeakMap<object, unknown> {
   return _toString.call(val) === '[object WeakMap]';
 }
-export function isWeakSet(val: any): boolean {
+export function isWeakSet(val: unknown): val is WeakSet<object> {
   return _toString.call(val) === '[object WeakSet]';
 }
-export function isFile(val: any): boolean {
+export function isFile(val: unknown): val is File {
   return _toString.call(val) === '[object File]';
 }
-export function isStringNumber(val: any): val is StringNumber {
+export function isStringNumber(val: unknown): val is StringNumber {
   if (!isString(val)) {
     return false;
   }
   return !Number.isNaN(Number(val));
 }
 export function isNumberStr(str: string): str is StringNumber {
-  return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str);
+  return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/.test(str);
 }
 
 export function isBower() {
@@ -85,7 +85,7 @@ export function isUpperCase(str: string) {
 }
 
 // 判断是否是个异步函数
-export function isAsyncFn(fn: Function): boolean {
+export function isAsyncFn(fn: Function): fn is (...args: any[]) => Promise<any> {
   return _toString.call(fn) === '[object AsyncFunction]';
 }
 export const isPrimitive = (
