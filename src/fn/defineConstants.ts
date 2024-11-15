@@ -216,7 +216,6 @@ export function defineConstants<T extends readonly IBaseDef[], N extends string 
   >;
 }
 /*
-@deprecated 请使用新的方法 `defineConst` 替代。
   @param defs 定义列表
   @param namespace 命名空间
   @returns  返回一个对象，包含以下属性：

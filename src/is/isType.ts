@@ -1,6 +1,8 @@
 import { _toString } from '../common';
 import type { StringNumber } from '../types';
 
+export const isObject = (val: unknown): val is Record<any, any> =>
+  val !== null && typeof val === 'object';
 export function isArray(val: unknown): val is Array<unknown> {
   return Array.isArray(val);
 }
@@ -58,6 +60,7 @@ export function isWeakSet(val: unknown): val is WeakSet<object> {
 export function isFile(val: unknown): val is File {
   return _toString.call(val) === '[object File]';
 }
+// @deprecated
 export function isStringNumber(val: unknown): val is StringNumber {
   if (!isString(val)) {
     return false;

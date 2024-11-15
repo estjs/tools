@@ -5,3 +5,4 @@ export { templateCompile } from './tinyTemplateCompile';
 export { EventBus } from './eventBus';
 export * from './parseUrl';
 export { hexToRGB } from './hexToRgba';
+export { createBean } from './createBean';
