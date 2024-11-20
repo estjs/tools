@@ -24,16 +24,16 @@ export function isMap(val: unknown): val is Map<unknown, unknown> {
 export function isNaN(val: unknown) {
   return Number.isNaN(val);
 }
-export function isNull(val: unknown): boolean {
+export function isNull(val: unknown): val is null {
   return val === null;
 }
-export function isNumber(val: unknown): boolean {
+export function isNumber(val: unknown): val is number {
   return typeof val === 'number';
 }
-export function isPlainObject(val: unknown): boolean {
+export function isPlainObject(val: unknown): val is Record<string, any> {
   return _toString.call(val) === '[object Object]';
 }
-export function isPromise(val: unknown): boolean {
+export function isPromise(val: unknown): val is Promise<any> {
   return _toString.call(val) === '[object Promise]';
 }
 export function isReg(val: unknown): val is RegExp {
@@ -71,7 +71,7 @@ export function isNumberStr(str: string): str is StringNumber {
   return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/.test(str);
 }
 
-export function isBower() {
+export function isBower(): boolean {
   return typeof window === 'object';
 }
 

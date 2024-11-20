@@ -1,4 +1,4 @@
-import { asyncPool } from '../..';
+import { asyncPool } from '../';
 
 describe('test asyncPool', () => {
   it('asyncPool test', async () => {

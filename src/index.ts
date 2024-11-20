@@ -1,10 +1,7 @@
-export * from './types';
-
-export * from './array';
-export * from './code';
-export * from './dom';
-export * from './fn';
+export * from './common';
+export * from './formatter';
+export * from './function';
 export * from './is';
-export * from './obj';
 export * from './promise';
-export * from './string';
+export * from './utils';
+export * from './types';
