@@ -1,7 +1,7 @@
 {
   "name": "@estjs/tools",
   "version": "0.1.35",
-  "packageManager": "pnpm@9.13.2",
+  "packageManager": "pnpm@9.14.1",
   "type": "module",
   "keywords": [],
   "license": "MIT",
