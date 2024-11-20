@@ -17,6 +17,7 @@ describe('uuid', () => {
 
   it('should use crypto.getRandomValues', () => {
     const spy = vi.spyOn(crypto, 'getRandomValues').mockImplementation(array => {
+      // @ts-ignore
       array[0] = 0xff; // Set a predictable value for testing
       return array;
     });
