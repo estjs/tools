@@ -1,4 +1,3 @@
-export { dateFormatter } from './dateFormatter';
 export { escapeHtml, unescapeHtml } from './escapeHtml';
 export { filterNotValue } from './filterNotValue';
 export { filterParams } from './filterParams';
