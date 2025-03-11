@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@estjs/eslint-config':
         specifier: ^1.2.9
-        version: 1.2.10(@typescript-eslint/utils@8.17.0(eslint@9.15.0(jiti@1.21.7))(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.7))(prettier@3.3.3)(typescript@5.7.2)(vitest@2.1.5(jsdom@25.0.1))
+        version: 1.2.10(@typescript-eslint/utils@8.17.0(eslint@9.15.0(jiti@1.21.7))(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.7))(prettier@3.5.3)(typescript@5.7.2)(vitest@2.1.5(jsdom@25.0.1))
       bumpp:
         specifier: ^9.8.1
         version: 9.8.1
@@ -35,7 +35,7 @@ importers:
         version: 9.14.2
       prettier:
         specifier: ^3.3.3
-        version: 3.3.3
+        version: 3.5.3
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(jiti@1.21.7)(postcss@8.4.49)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1)
@@ -504,9 +504,11 @@ packages:
 
   '@eslint-types/jsdoc@48.2.2':
     resolution: {integrity: sha512-HpyW7wipVZGkCMOMMzjZ/wieIoinafxg1M617s8UPEchEGH/Xgs7pLZMaNR3Kdyx3Rz8STHYzCmKJfV2orjFJg==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@eslint-types/typescript-eslint@7.5.0':
     resolution: {integrity: sha512-zKvsPBDq6o0L4p2sRtq8fxOtGc+mm37aZSXLsiD4DIRl2kYUxKNO9CKDTAgmuMYUzih9J7lbLxAomreLrdAiVQ==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@eslint/config-array@0.19.0':
     resolution: {integrity: sha512-zdHg2FPIFNKPdcHWtiNT+jEFCHYVplAXRDlQDyqy0zGx/q2parwh7brGJSiTxRk/TSMkbM//zt/f5CHgyTyaSQ==}
@@ -2404,8 +2406,8 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3337,7 +3339,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@estjs/eslint-config@1.2.10(@typescript-eslint/utils@8.17.0(eslint@9.15.0(jiti@1.21.7))(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.7))(prettier@3.3.3)(typescript@5.7.2)(vitest@2.1.5(jsdom@25.0.1))':
+  '@estjs/eslint-config@1.2.10(@typescript-eslint/utils@8.17.0(eslint@9.15.0(jiti@1.21.7))(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.7))(prettier@3.5.3)(typescript@5.7.2)(vitest@2.1.5(jsdom@25.0.1))':
     dependencies:
       '@eslint-types/jsdoc': 48.2.2
       '@eslint-types/typescript-eslint': 7.5.0
@@ -3353,7 +3355,7 @@ snapshots:
       eslint-plugin-jsonc: 2.18.2(eslint@9.15.0(jiti@1.21.7))
       eslint-plugin-markdown: 5.1.0(eslint@9.15.0(jiti@1.21.7))
       eslint-plugin-n: 17.14.0(eslint@9.15.0(jiti@1.21.7))
-      eslint-plugin-prettier: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.7)))(eslint@9.15.0(jiti@1.21.7))(prettier@3.3.3)
+      eslint-plugin-prettier: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.7)))(eslint@9.15.0(jiti@1.21.7))(prettier@3.5.3)
       eslint-plugin-react: 7.37.2(eslint@9.15.0(jiti@1.21.7))
       eslint-plugin-react-hooks: 5.0.0(eslint@9.15.0(jiti@1.21.7))
       eslint-plugin-react-refresh: 0.4.16(eslint@9.15.0(jiti@1.21.7))
@@ -4391,10 +4393,10 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.6.3
 
-  eslint-plugin-prettier@5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.7)))(eslint@9.15.0(jiti@1.21.7))(prettier@3.3.3):
+  eslint-plugin-prettier@5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.7)))(eslint@9.15.0(jiti@1.21.7))(prettier@3.5.3):
     dependencies:
       eslint: 9.15.0(jiti@1.21.7)
-      prettier: 3.3.3
+      prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.9.2
     optionalDependencies:
@@ -5453,7 +5455,7 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier@3.3.3: {}
+  prettier@3.5.3: {}
 
   prompts@2.4.2:
     dependencies:
