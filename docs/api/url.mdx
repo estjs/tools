@@ -1,0 +1,175 @@
+# URL and Path Utilities
+
+This module provides a comprehensive set of utilities for working with URLs and file paths.
+
+## URL Parsing
+
+### parseQuery
+
+Parses a URL query string into an object.
+
+```ts
+function parseQuery(query: string): QueryParams
+```
+
+**Parameters:**
+- `query`: Query string to parse (with or without leading ?)
+
+**Returns:**
+- Object containing query parameters
+
+**Example:**
+```ts
+parseQuery('?foo=bar&baz=123')
+// { foo: 'bar', baz: '123' }
+
+parseQuery('items=1&items=2')
+// { items: ['1', '2'] }
+```
+
+### parseURL
+
+Parses a URL string into its constituent parts.
+
+```ts
+function parseURL(url: string): URLParts
+```
+
+**Parameters:**
+- `url`: URL string to parse
+
+**Returns:**
+- Object containing URL parts (protocol, username, password, hostname, port, pathname, search, hash)
+
+**Example:**
+```ts
+parseURL('https://user:pass@example.com:8080/path?foo=bar#hash')
+// {
+//   protocol: 'https:',
+//   username: 'user',
+//   password: 'pass',
+//   hostname: 'example.com',
+//   port: '8080',
+//   pathname: '/path',
+//   search: '?foo=bar',
+//   hash: '#hash'
+// }
+```
+
+### getPathname
+
+Extracts the pathname from a URL.
+
+```ts
+function getPathname(url: string): string
+```
+
+**Example:**
+```ts
+getPathname('https://example.com/path?query')
+// '/path'
+```
+
+### getQuery
+
+Extracts the query string from a URL.
+
+```ts
+function getQuery(url: string): string
+```
+
+**Example:**
+```ts
+getQuery('https://example.com/path?foo=bar')
+// '?foo=bar'
+```
+
+### getHash
+
+Extracts the hash from a URL.
+
+```ts
+function getHash(url: string): string
+```
+
+**Example:**
+```ts
+getHash('https://example.com/path#section')
+// '#section'
+```
+
+## URL Building
+
+### buildQuery
+
+Builds a query string from an object of parameters.
+
+```ts
+function buildQuery(params: QueryParams): string
+```
+
+**Parameters:**
+- `params`: Object containing query parameters
+
+**Returns:**
+- Query string (including ?)
+
+**Example:**
+```ts
+buildQuery({ foo: 'bar', baz: 123 })
+// '?foo=bar&baz=123'
+
+buildQuery({ items: ['1', '2'] })
+// '?items=1&items=2'
+```
+
+### joinURL
+
+Joins URL segments together, handling slashes correctly.
+
+```ts
+function joinURL(...segments: string[]): string
+```
+
+**Example:**
+```ts
+joinURL('https://example.com', 'path', 'to', 'resource')
+// 'https://example.com/path/to/resource'
+
+joinURL('api/', '/users/', '/123/')
+// 'api/users/123'
+```
+
+### addQueryParams
+
+Adds query parameters to a URL.
+
+```ts
+function addQueryParams(url: string, params: QueryParams): string
+```
+
+**Example:**
+```ts
+addQueryParams('https://example.com', { page: 1, sort: 'desc' })
+// 'https://example.com?page=1&sort=desc'
+
+addQueryParams('https://example.com?foo=bar', { baz: 'qux' })
+// 'https://example.com?foo=bar&baz=qux'
+```
+
+### setHash
+
+Updates the hash fragment of a URL.
+
+```ts
+function setHash(url: string, hash: string): string
+```
+
+**Example:**
+```ts
+setHash('https://example.com', 'section1')
+// 'https://example.com#section1'
+
+setHash('https://example.com#old', '#new')
+// 'https://example.com#new'
+```

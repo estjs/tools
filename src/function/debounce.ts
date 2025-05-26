@@ -1,13 +1,20 @@
 /**
  * Creates a debounced function that delays invoking the provided function until after a specified wait time.
  * @template T - The type of the function to debounce.
- * @param {T} func - The function to debounce.
- * @param {number} wait - The number of milliseconds to delay.
- * @returns {(...args: Parameters<T>) => void} - The debounced function.
+ * @param func The function to debounce
+ * @param wait The number of milliseconds to delay
+ * @returns The debounced function
+ * @example
+ * ```ts
+ * const debouncedLog = debounce((msg: string) => console.log(msg), 200);
+ * debouncedLog('hello');
+ * debouncedLog('world');
+ * // Only 'world' will be logged after 200ms
+ * ```
  */
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
-  wait: number
+  wait: number,
 ): (...args: Parameters<T>) => void {
   let timeoutId: number | undefined;
 
@@ -15,10 +22,9 @@ export function debounce<T extends (...args: any[]) => any>(
     if (timeoutId !== undefined) {
       clearTimeout(timeoutId);
     }
-
     timeoutId = window.setTimeout(() => {
       func(...args);
       timeoutId = undefined;
     }, wait);
   };
-} 
+}

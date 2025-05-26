@@ -1,19 +1,19 @@
-// 定义接口 IBaseDef，表示一个基本定义，包括键和值
+// Interface for a basic definition, including key and value
 export interface IBaseDef {
   key: PropertyKey;
   value: string | number;
 }
 
-// 定义一个类型别名 ToPropertyPrefix，用于为属性添加前缀
+// Type alias for adding a prefix to a property
 type ToPropertyPrefix<N extends string = ''> = N extends '' ? '' : `${N}_`;
 
-// 定义一个类型别名 ToProperty，用于组合前缀和属性
+// Type alias for combining prefix and property
 type ToProperty<
   Property extends string,
   N extends string = '',
 > = `${ToPropertyPrefix<N>}${Property}`;
 
-// 定义一个类型别名 ToKeys，用于提取一个数组中的所有键
+// Type alias for extracting all keys from an array
 type ToKeys<T> = T extends readonly [infer A, ...infer B]
   ? A extends {
       readonly key: infer K;
@@ -24,7 +24,7 @@ type ToKeys<T> = T extends readonly [infer A, ...infer B]
     : never
   : [];
 
-// 定义一个类型别名 ToValues，用于提取一个数组中的所有值
+// Type alias for extracting all values from an array
 type ToValues<T> = T extends readonly [infer A, ...infer B]
   ? A extends {
       readonly value: infer K;
@@ -35,7 +35,7 @@ type ToValues<T> = T extends readonly [infer A, ...infer B]
     : never
   : [];
 
-// 定义一个类型别名 ToSingleKeyMap，将一个对象映射到其键
+// Type alias for mapping an object to its keys
 type ToSingleKeyMap<T> = T extends {
   readonly key: infer K;
 }
@@ -46,17 +46,17 @@ type ToSingleKeyMap<T> = T extends {
     : never
   : never;
 
-// 定义一个类型别名 MergeIntersection，将交集类型合并为单一类型
+// Type alias for merging intersection types into a single type
 export type MergeIntersection<A> = A extends infer T ? { [Key in keyof T]: T[Key] } : never;
 
-// 定义一个类型别名 ToKeyMap，将一个数组映射到其键的映射
+// Type alias for mapping an array to its key map
 type ToKeyMap<T> = T extends readonly [infer A, ...infer B]
   ? B['length'] extends 0
     ? ToSingleKeyMap<A>
     : MergeIntersection<ToSingleKeyMap<A> & ToKeyMap<B>>
   : [];
 
-// 定义一个类型别名 ToSingleValueMap，将一个对象映射到其值
+// Type alias for mapping an object to its values
 type ToSingleValueMap<T> = T extends {
   readonly value: infer K;
 }
@@ -67,14 +67,14 @@ type ToSingleValueMap<T> = T extends {
     : never
   : never;
 
-// 定义一个类型别名 ToValueMap，将一个数组映射到其值的映射
+// Type alias for mapping an array to its value map
 type ToValueMap<T> = T extends readonly [infer A, ...infer B]
   ? B['length'] extends 0
     ? ToSingleValueMap<A>
     : MergeIntersection<ToSingleValueMap<A> & ToValueMap<B>>
   : [];
 
-// 定义一个类型别名 ToSingleKeyValue，将一个对象映射到其键值对
+// Type alias for mapping an object to its key-value pairs
 type ToSingleKeyValue<T> = T extends {
   readonly key: infer K;
   readonly value: infer V;
@@ -86,14 +86,14 @@ type ToSingleKeyValue<T> = T extends {
     : never
   : never;
 
-// 定义一个类型别名 ToKeyValue，将一个数组映射到其键值对
+// Type alias for mapping an array to its key-value pairs
 type ToKeyValue<T> = T extends readonly [infer A, ...infer B]
   ? B['length'] extends 0
     ? ToSingleKeyValue<A>
     : MergeIntersection<ToSingleKeyValue<A> & ToKeyValue<B>>
   : [];
 
-// 定义一个类型别名 ToSingleValueKey，将一个对象映射到其值键对
+// Type alias for mapping an object to its value key pairs
 type ToSingleValueKey<T> = T extends {
   readonly key: infer K;
   readonly value: infer V;
@@ -105,7 +105,7 @@ type ToSingleValueKey<T> = T extends {
     : never
   : never;
 
-// 定义一个类型别名 ToValueKey，将一个数组映射到其值键对
+// Type alias for mapping an array to its value key pairs
 type ToValueKey<T> = T extends readonly [infer A, ...infer B]
   ? B['length'] extends 0
     ? ToSingleValueKey<A>
@@ -113,19 +113,19 @@ type ToValueKey<T> = T extends readonly [infer A, ...infer B]
   : [];
 
 /*
-  @deprecated 请使用新的方法 `defineConst` 替代。
-  @param defs 定义列表
-  @param namespace 命名空间
-  @returns  返回一个对象，包含以下属性：
-              - [`${prefix}KEYS`]: 键的列表
-              - [`${prefix}VALUES`]: 值的列表
-              - [`${prefix}KV`]: 键值对的映射
-              - [`${prefix}VK`]: 值键对的映射
-              - [`${prefix}MAP_BY_KEY`]: 按键映射的对象
-              - [`${prefix}MAP_BY_VALUE`]: 按值映射的对象
-              - [`${prefix}KEY_MAP`]: 键的映射对象
-              - [`${prefix}MAP`]: 映射对象
-              - [`${prefix}LIST`]: 定义列表
+  @deprecated Please use the new method `defineConst` instead.
+  @param defs Definition list
+  @param namespace Namespace
+  @returns Returns an object containing the following properties:
+              - [`${prefix}KEYS`]: Key list
+              - [`${prefix}VALUES`]: Value list
+              - [`${prefix}KV`]: Key-value mapping
+              - [`${prefix}VK`]: Value-key mapping
+              - [`${prefix}MAP_BY_KEY`]: Key mapping object
+              - [`${prefix}MAP_BY_VALUE`]: Value mapping object
+              - [`${prefix}KEY_MAP`]: Key mapping object
+              - [`${prefix}MAP`]: Mapping object
+              - [`${prefix}LIST`]: Definition list
 
   @example
           const defs = [
@@ -145,54 +145,54 @@ export function defineConstants<T extends readonly IBaseDef[], N extends string 
   defs: T,
   namespace?: N,
 ) {
-  // 定义前缀
+  // Define prefix
   const prefix = namespace ? `${namespace}_` : '';
   return {
-    [`${prefix}KEYS`]: defs.map(item => item.key), // 键的列表
-    [`${prefix}VALUES`]: defs.map(item => item.value), // 值的列表
+    [`${prefix}KEYS`]: defs.map(item => item.key), // Key list
+    [`${prefix}VALUES`]: defs.map(item => item.value), // Value list
     [`${prefix}KV`]: defs.reduce(
       (map, item) => ({
         ...map,
         [item.key]: item.value,
       }),
       {},
-    ), // 键值对的映射
+    ), // Key-value mapping
     [`${prefix}VK`]: defs.reduce(
       (map, item) => ({
         ...map,
         [item.value]: item.key,
       }),
       {},
-    ), // 值键对的映射
+    ), // Value-key mapping
     [`${prefix}MAP_BY_KEY`]: defs.reduce(
       (map, item) => ({
         ...map,
         [item.key]: item,
       }),
       {},
-    ), // 按键映射的对象
+    ), // Key mapping object
     [`${prefix}MAP_BY_VALUE`]: defs.reduce(
       (map, item) => ({
         ...map,
         [item.value]: item,
       }),
       {},
-    ), // 按值映射的对象
+    ), // Value mapping object
     [`${prefix}KEY_MAP`]: defs.reduce(
       (map, item) => ({
         ...map,
         [item.key]: item,
       }),
       {},
-    ), // 键的映射对象
+    ), // Key mapping object
     [`${prefix}MAP`]: defs.reduce(
       (map, item) => ({
         ...map,
         [item.key]: item.value,
       }),
       {},
-    ), // 映射对象
-    [`${prefix}LIST`]: defs, // 定义列表
+    ), // Mapping object
+    [`${prefix}LIST`]: defs, // Definition list
   } as MergeIntersection<
     {
       [Key in ToProperty<'KV', N>]: ToKeyValue<T>;
@@ -216,18 +216,18 @@ export function defineConstants<T extends readonly IBaseDef[], N extends string 
   >;
 }
 /*
-  @param defs 定义列表
-  @param namespace 命名空间
-  @returns  返回一个对象，包含以下属性：
-              - [`${prefix}KEYS`]: 键的列表
-              - [`${prefix}VALUES`]: 值的列表
-              - [`${prefix}KV`]: 键值对的映射
-              - [`${prefix}VK`]: 值键对的映射
-              - [`${prefix}MAP_BY_KEY`]: 按键映射的对象
-              - [`${prefix}MAP_BY_VALUE`]: 按值映射的对象
-              - [`${prefix}KEY_MAP`]: 键的映射对象
-              - [`${prefix}MAP`]: 映射对象
-              - [`${prefix}LIST`]: 定义列表
+  @param defs Definition list
+  @param namespace Namespace
+  @returns Returns an object containing the following properties:
+              - [`${prefix}KEYS`]: Key list
+              - [`${prefix}VALUES`]: Value list
+              - [`${prefix}KV`]: Key-value mapping
+              - [`${prefix}VK`]: Value-key mapping
+              - [`${prefix}MAP_BY_KEY`]: Key mapping object
+              - [`${prefix}MAP_BY_VALUE`]: Value mapping object
+              - [`${prefix}KEY_MAP`]: Key mapping object
+              - [`${prefix}MAP`]: Mapping object
+              - [`${prefix}LIST`]: Definition list
 
   @example
           const defs = [

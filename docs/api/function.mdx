@@ -1,0 +1,227 @@
+# Function Utilities
+
+## curry
+
+Curries a function, allowing it to be called with fewer arguments than it expects.
+
+```ts
+function curry<T extends (...args: any[]) => any>(fn: T): any
+```
+
+**Parameters:**
+- `fn` The original function to curry
+
+**Returns:**
+- The curried function, which can be called in steps
+
+**Example:**
+```ts
+const add = (a: number, b: number) => a + b;
+const curriedAdd = curry(add);
+curriedAdd(1)(2); // 3
+curriedAdd(1, 2); // 3
+
+const sum = (a: number, b: number, c: number) => a + b + c;
+const curriedSum = curry(sum);
+curriedSum(1)(2)(3); // 6
+curriedSum(1, 2)(3); // 6
+curriedSum(1)(2, 3); // 6
+curriedSum(1, 2, 3); // 6
+```
+
+## debounce
+
+Creates a debounced function that delays invoking the provided function until after a specified wait time.
+
+```ts
+debounce<T extends (...args: any[]) => any>(func: T, wait: number): (...args: Parameters<T>) => void
+```
+
+**Parameters:**
+- `func` The function to debounce
+- `wait` The number of milliseconds to delay
+
+**Returns:**
+- The debounced function
+
+**Example:**
+```ts
+const debouncedLog = debounce((msg: string) => console.log(msg), 200);
+debouncedLog('hello');
+debouncedLog('world');
+// Only 'world' will be logged after 200ms
+```
+
+## throttle
+
+Creates a throttled function that only invokes the provided function at most once per specified wait time.
+
+```ts
+throttle<T extends (...args: any[]) => any>(func: T, wait: number): (...args: Parameters<T>) => void
+```
+
+**Parameters:**
+- `func` The function to throttle
+- `wait` The number of milliseconds to wait before allowing the next invocation
+
+**Returns:**
+- The throttled function
+
+**Example:**
+```ts
+const throttledLog = throttle((msg: string) => console.log(msg), 200);
+throttledLog('a');
+throttledLog('b');
+// Only 'a' will be logged immediately, 'b' will be ignored if within 200ms
+```
+
+## memoize
+
+Creates a memoized version of a function that caches its results.
+
+```ts
+function memoize<T extends (...args: any[]) => any>(func: T): T
+```
+
+**Parameters:**
+- `func` The function to memoize
+
+**Returns:**
+- The memoized function
+
+**Example:**
+```ts
+const memoizedFib = memoize((n: number): number => {
+  if (n <= 1) return n;
+  return memoizedFib(n - 1) + memoizedFib(n - 2);
+});
+memoizedFib(10); // 55
+```
+
+## once
+
+Creates a function that can only be called once.
+
+```ts
+function once<T extends (...args: any[]) => any>(func: T): T
+```
+
+**Parameters:**
+- `func` The function to wrap
+
+**Returns:**
+- The new function that can only be called once
+
+**Example:**
+```ts
+const initialize = once(() => {
+  console.log('Initializing...');
+});
+initialize(); // Logs: Initializing...
+initialize(); // Does nothing
+```
+
+## negate
+
+Creates a function that negates the result of the predicate function.
+
+```ts
+function negate<T extends (...args: any[]) => boolean>(predicate: T): T
+```
+
+**Parameters:**
+- `predicate` The predicate function to negate
+
+**Returns:**
+- The negated function
+
+**Example:**
+```ts
+const isEven = (n: number) => n % 2 === 0;
+const isOdd = negate(isEven);
+isOdd(1); // true
+isOdd(2); // false
+```
+
+## compose
+
+Creates a function that is the composition of the provided functions.
+
+```ts
+function compose<T>(...funcs: Array<(arg: T) => T>): (arg: T) => T
+```
+
+**Parameters:**
+- `...funcs` The functions to compose
+
+**Returns:**
+- The composed function
+
+**Example:**
+```ts
+const addOne = (x: number) => x + 1;
+const double = (x: number) => x * 2;
+const addOneThenDouble = compose(double, addOne);
+addOneThenDouble(3); // 8
+```
+
+## noop
+
+A function that does nothing.
+
+```ts
+type Noop = () => void
+```
+
+**Example:**
+```ts
+const noop: Noop = () => {};
+noop(); // does nothing
+```
+
+## constant
+
+Creates a function that always returns the same value.
+
+```ts
+function constant<T>(value: T): () => T
+```
+
+**Parameters:**
+- `value` The value to return
+
+**Returns:**
+- A function that always returns `value`
+
+**Example:**
+```ts
+const alwaysTrue = constant(true);
+alwaysTrue(); // true
+```
+
+## method
+
+Creates a bound method from an object and a method name.
+
+```ts
+function method<T, K extends keyof T>(obj: T, key: K): T[K]
+```
+
+**Parameters:**
+- `obj` The object
+- `key` The method name
+
+**Returns:**
+- The bound method
+
+**Example:**
+```ts
+const obj = {
+  value: 42,
+  getValue() {
+    return this.value;
+  },
+};
+const getValue = method(obj, 'getValue');
+getValue(); // 42
+```

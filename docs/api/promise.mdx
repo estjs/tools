@@ -1,0 +1,29 @@
+# Promise Utilities
+
+## promisePool
+
+Runs an array of async tasks with a concurrency limit (promise pool).
+
+```ts
+function promisePool<T = any>(limit: number, tasks: (() => Promise<T>)[]): Promise<T[]>
+```
+
+**Parameters:**
+- `limit`: Maximum number of concurrent tasks (default: 4)
+- `tasks`: Array of functions returning promises
+
+**Returns:**
+- Promise resolving to an array of results in the original order
+
+**Example:**
+```ts
+const tasks = [
+  () => fetch('/api/1'),
+  () => fetch('/api/2'),
+  () => fetch('/api/3'),
+];
+const results = await promisePool(2, tasks);
+// Only 2 fetches run concurrently
+```
+
+If any task rejects, the pool will reject with the same error. 

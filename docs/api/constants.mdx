@@ -1,0 +1,47 @@
+# Constants Utilities
+
+## defineConstants
+
+Defines a set of constants and generates various mappings and lists for them.
+
+```ts
+interface ConstantDef {
+  key: string | number;
+  value: string | number;
+}
+
+function defineConstants<T extends readonly ConstantDef[], N extends string = ''>(
+  defs: T,
+  namespace?: N,
+): {
+  [K: string]: any;
+}
+```
+
+**Parameters:**
+- `defs`: Array of objects with `key` and `value` properties
+- `namespace`: Optional namespace prefix for generated properties
+
+**Returns:**
+- An object containing keys, values, key-value map, value-key map, and more
+
+**Example:**
+```ts
+const defs = [
+  { key: 'A', value: 1 },
+  { key: 'B', value: 2 },
+  { key: 'C', value: 3 },
+];
+const constants = defineConstants(defs, 'MY');
+// constants.MY_KEYS => ['A', 'B', 'C']
+// constants.MY_VALUES => [1, 2, 3]
+// constants.MY_KV => { A: 1, B: 2, C: 3 }
+// constants.MY_VK => { 1: 'A', 2: 'B', 3: 'C' }
+// constants.MY_MAP_BY_KEY => { A: { key: 'A', value: 1 }, ... }
+// constants.MY_MAP_BY_VALUE => { 1: { key: 'A', value: 1 }, ... }
+// constants.MY_KEY_MAP => { A: { key: 'A', value: 1 }, ... }
+// constants.MY_MAP => { A: 1, B: 2, C: 3 }
+// constants.MY_LIST => defs
+```
+
+If no namespace is provided, the properties will be named without a prefix (e.g., `KEYS`, `VALUES`, etc.). 

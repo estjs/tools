@@ -1,0 +1,33 @@
+# Event Utilities
+
+## createEventBus
+
+Creates a simple event bus for subscribing, emitting, and unsubscribing events.
+
+```ts
+function createEventBus(): {
+  on(type: string, callback: Function): void;
+  emit(type: string, ...payload: any[]): void;
+  off(type: string, callback: Function): void;
+}
+```
+
+**Methods:**
+- `on(type, callback)`: Subscribe to an event
+- `emit(type, ...payload)`: Emit an event with arguments
+- `off(type, callback)`: Unsubscribe from an event
+
+**Example:**
+```ts
+const bus = createEventBus();
+function handler(data) { console.log(data); }
+bus.on('test', handler);
+bus.emit('test', 123); // logs 123
+bus.off('test', handler);
+```
+
+You can also subscribe to all events using the `*` wildcard:
+```ts
+bus.on('*', (data) => { console.log('any event', data); });
+bus.emit('foo', 1); // logs: any event 1
+``` 

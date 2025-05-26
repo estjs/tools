@@ -1,0 +1,462 @@
+# Utility Functions
+
+This module provides a collection of general-purpose utility functions.
+
+## Function Utilities
+
+### debounce
+
+Creates a debounced function that delays invoking the function until after a specified wait time.
+
+```ts
+function debounce<T extends AnyFunction>(func: T, wait: number): T
+```
+
+**Example:**
+```ts
+const debouncedSave = debounce(save, 1000);
+// Will only call save() once after 1 second of no calls
+debouncedSave();
+debouncedSave();
+debouncedSave();
+```
+
+### throttle
+
+Creates a throttled function that only invokes the function at most once per specified wait time.
+
+```ts
+function throttle<T extends AnyFunction>(func: T, wait: number): T
+```
+
+**Example:**
+```ts
+const throttledScroll = throttle(onScroll, 100);
+// Will only call onScroll() at most once every 100ms
+window.addEventListener('scroll', throttledScroll);
+```
+
+### memoize
+
+Creates a memoized version of a function that caches its results.
+
+```ts
+function memoize<T extends AnyFunction>(func: T): T
+```
+
+**Example:**
+```ts
+const memoizedFib = memoize((n: number): number => {
+  if (n <= 1) return n;
+  return memoizedFib(n - 1) + memoizedFib(n - 2);
+});
+```
+
+### once
+
+Creates a function that can only be called once.
+
+```ts
+function once<T extends AnyFunction>(func: T): T
+```
+
+**Example:**
+```ts
+const initialize = once(() => {
+  console.log('Initializing...');
+});
+initialize(); // Logs: Initializing...
+initialize(); // Does nothing
+```
+
+### negate
+
+Creates a function that negates the result of the predicate function.
+
+```ts
+function negate<T extends AnyFunction>(predicate: T): T
+```
+
+**Example:**
+```ts
+const isEven = (n: number) => n % 2 === 0;
+const isOdd = negate(isEven);
+isOdd(1); // true
+isOdd(2); // false
+```
+
+### compose
+
+Creates a function that is the composition of the provided functions.
+
+```ts
+function compose<T>(...funcs: Array<(arg: T) => T>): (arg: T) => T
+```
+
+**Example:**
+```ts
+const addOne = (x: number) => x + 1;
+const double = (x: number) => x * 2;
+const addOneThenDouble = compose(double, addOne);
+addOneThenDouble(3); // 8
+```
+
+## Type Checking
+
+### isNil
+
+Checks if a value is null or undefined.
+
+```ts
+function isNil(value: unknown): value is null | undefined
+```
+
+**Example:**
+```ts
+isNil(null); // true
+isNil(undefined); // true
+isNil(0); // false
+```
+
+### isDefined
+
+Checks if a value is defined (not null or undefined).
+
+```ts
+function isDefined<T>(value: Nullable<T>): value is T
+```
+
+**Example:**
+```ts
+isDefined(null); // false
+isDefined(undefined); // false
+isDefined(0); // true
+```
+
+### isPrimitive
+
+Checks if a value is a primitive.
+
+```ts
+function isPrimitive(value: unknown): value is Primitive
+```
+
+**Example:**
+```ts
+isPrimitive('string'); // true
+isPrimitive(123); // true
+isPrimitive({}); // false
+```
+
+### isPlainObject
+
+Checks if a value is a plain object.
+
+```ts
+function isPlainObject(value: unknown): value is Dictionary
+```
+
+**Example:**
+```ts
+isPlainObject({}); // true
+isPlainObject(new Date()); // false
+isPlainObject(null); // false
+```
+
+### isPromise
+
+Checks if a value is a promise.
+
+```ts
+function isPromise(value: unknown): value is Promise<unknown>
+```
+
+**Example:**
+```ts
+isPromise(Promise.resolve()); // true
+isPromise({ then: () => {} }); // true
+isPromise({}); // false
+```
+
+### isFunction
+
+Checks if a value is a function.
+
+```ts
+function isFunction(value: unknown): value is Function
+```
+
+**Example:**
+```ts
+isFunction(() => {}); // true
+isFunction(class {}); // true
+isFunction({}); // false
+```
+
+### isString
+
+Checks if a value is a string.
+
+```ts
+function isString(value: unknown): value is string
+```
+
+**Example:**
+```ts
+isString(''); // true
+isString(new String('')); // true
+isString(123); // false
+```
+
+### isNumber
+
+Checks if a value is a number.
+
+```ts
+function isNumber(value: unknown): value is number
+```
+
+**Example:**
+```ts
+isNumber(123); // true
+isNumber(NaN); // false
+isNumber('123'); // false
+```
+
+### isBoolean
+
+Checks if a value is a boolean.
+
+```ts
+function isBoolean(value: unknown): value is boolean
+```
+
+**Example:**
+```ts
+isBoolean(true); // true
+isBoolean(new Boolean(false)); // true
+isBoolean(1); // false
+```
+
+### isArray
+
+Checks if a value is an array.
+
+```ts
+function isArray(value: unknown): value is unknown[]
+```
+
+**Example:**
+```ts
+isArray([]); // true
+isArray(new Array()); // true
+isArray({}); // false
+```
+
+### isDate
+
+Checks if a value is a valid date.
+
+```ts
+function isDate(value: unknown): value is Date
+```
+
+**Example:**
+```ts
+isDate(new Date()); // true
+isDate('2021-01-01'); // false
+```
+
+## Common Utilities
+
+### isEmpty
+
+Checks if a value is empty (null, undefined, empty string, empty array, empty object).
+
+```ts
+function isEmpty(value: unknown): boolean
+```
+
+**Example:**
+```ts
+isEmpty(null); // true
+isEmpty(''); // true
+isEmpty([]); // true
+isEmpty({}); // true
+isEmpty(' '); // false
+```
+
+### random
+
+Generates a random integer between min and max (inclusive).
+
+```ts
+function random(min: number, max: number): number
+```
+
+**Example:**
+```ts
+random(1, 10); // Random number between 1 and 10
+random(0, 1); // 0 or 1
+```
+
+### uniqueId
+
+Generates a unique ID.
+
+```ts
+function uniqueId(prefix?: string): string
+```
+
+**Example:**
+```ts
+uniqueId(); // '1'
+uniqueId('prefix_'); // 'prefix_1'
+```
+
+### delay
+
+Delays execution for a specified number of milliseconds.
+
+```ts
+function delay(ms: number): Promise<void>
+```
+
+**Example:**
+```ts
+await delay(1000); // Wait for 1 second
+```
+
+### tryParseJSON
+
+Tries to parse a JSON string.
+
+```ts
+function tryParseJSON<T>(value: string, defaultValue: T): T
+```
+
+**Example:**
+```ts
+tryParseJSON('{"foo":"bar"}', null); // { foo: 'bar' }
+tryParseJSON('invalid', {}); // {}
+```
+
+### tryStringifyJSON
+
+Tries to stringify a value to JSON.
+
+```ts
+function tryStringifyJSON(value: unknown, defaultValue?: string): string
+```
+
+**Example:**
+```ts
+tryStringifyJSON({ foo: 'bar' }); // '{"foo":"bar"}'
+tryStringifyJSON(circular, '{}'); // '{}'
+```
+
+## Types
+
+### AnyFunction
+```ts
+type AnyFunction = (...args: any[]) => any
+```
+
+### Noop
+```ts
+type Noop = () => void
+```
+
+### VoidFunction
+```ts
+type VoidFunction = (...args: any[]) => void
+```
+
+### Supplier
+```ts
+type Supplier<T> = () => T
+```
+
+### Consumer
+```ts
+type Consumer<T> = (value: T) => void
+```
+
+### Function1
+```ts
+type Function1<T, R> = (value: T) => R
+```
+
+### Function2
+```ts
+type Function2<T1, T2, R> = (value1: T1, value2: T2) => R
+```
+
+### Predicate
+```ts
+type Predicate<T> = (value: T) => boolean
+```
+
+### Comparator
+```ts
+type Comparator<T> = (a: T, b: T) => number
+```
+
+### Nullable
+```ts
+type Nullable<T> = T | null | undefined
+```
+
+### Primitive
+```ts
+type Primitive = string | number | boolean | null | undefined
+```
+
+### Dictionary
+```ts
+type Dictionary<T = any> = Record<string, T>
+```
+
+### MaybeArray
+```ts
+type MaybeArray<T> = T | T[]
+```
+
+### MaybePromise
+```ts
+type MaybePromise<T> = T | Promise<T>
+```
+
+### Constructor
+```ts
+type Constructor<T = any> = new (...args: any[]) => T
+```
+
+### Instance
+```ts
+type Instance<T> = T extends new (...args: any[]) => infer R ? R : never
+```
+
+## createBean
+
+Creates a dynamic bean class with fields and auto-generated getters/setters. Supports both array and object configuration.
+
+```ts
+function createBean<T extends any[] | Record<string, any>>(config: T): new (initialValues?: Partial<any>) => any
+```
+
+**Example:**
+```ts
+// Array config
+const UserBean = createBean(['name', 'age']);
+const user = new UserBean({ name: 'Alice' });
+user.getName(); // 'Alice'
+user.setAge(30);
+user.getAge(); // 30
+
+// Object config
+const ProductBean = createBean({ id: 0, title: '' });
+const product = new ProductBean({ title: 'Book' });
+product.getId(); // 0
+product.getTitle(); // 'Book'
+``` 
