@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { curry } from '../curry';
 
 describe('curry', () => {
@@ -24,4 +24,4 @@ describe('curry', () => {
     const joinAB = curriedJoin('A', 'B');
     expect(joinAB('C')).toBe('ABC');
   });
-}); 
+});

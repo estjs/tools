@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { throttle } from '../throttle';
 
 describe('throttle', () => {
@@ -26,4 +26,4 @@ describe('throttle', () => {
     expect(fn).toBeCalledWith('x', 1, true);
     vi.useRealTimers();
   });
-}); 
+});

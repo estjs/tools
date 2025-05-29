@@ -1,4 +1,3 @@
-
 import { describe, expect, it, vi } from 'vitest';
 import { createEventBus } from '../eventBus';
 
@@ -38,4 +37,4 @@ describe('createEventBus', () => {
     bus.emit('any', 1, 2);
     expect(handler).toBeCalledWith(1, 2);
   });
-}); 
+});

@@ -1,4 +1,3 @@
-
 /**
  * Creates a new object with specified properties omitted.
  * @template T Input object type

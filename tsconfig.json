@@ -1,24 +1,17 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
-    "lib": [
-      "esnext",
-      "DOM"
-    ],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
     "jsx": "preserve",
-    "strictNullChecks": true,
+    "lib": ["esnext", "DOM"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "skipLibCheck": true,
+    "types": ["vitest/globals"],
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
     "skipDefaultLibCheck": true,
-    "types": [
-      "vitest/globals"
-    ],
+    "skipLibCheck": true
   },
-  "exclude": [
-    "dist"
-  ]
+  "exclude": ["dist"]
 }

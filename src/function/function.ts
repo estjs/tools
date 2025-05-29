@@ -1,6 +1,4 @@
-
-import type { AnyFunction  } from '../types';
-
+import type { AnyFunction } from '../types';
 
 /**
  * Creates a memoized version of a function
@@ -54,7 +52,6 @@ export function once<T extends AnyFunction>(func: T): T {
   } as T;
 }
 
-
 /**
  * Creates a function that is the composition of the provided functions
  * @param funcs Functions to compose
@@ -76,9 +73,7 @@ export function compose<T>(...funcs: Array<(arg: T) => T>): (arg: T) => T {
     return funcs[0];
   }
 
-  return funcs.reduce(
-    (a, b) => (arg: T) => a(b(arg))
-  );
+  return funcs.reduce((a, b) => (arg: T) => a(b(arg)));
 }
 
 /**

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { debounce } from '../debounce';
 
 describe('debounce', () => {
@@ -35,4 +35,4 @@ describe('debounce', () => {
     expect(fn).toBeCalledWith('x', 1, true);
     vi.useRealTimers();
   });
-}); 
+});

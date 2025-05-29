@@ -33,9 +33,9 @@ describe('deepClone', () => {
         hobbies: ['reading', 'gaming'],
         address: {
           city: 'New York',
-          country: 'USA'
-        }
-      }
+          country: 'USA',
+        },
+      },
     };
     const cloned = deepClone(obj);
 
@@ -66,9 +66,9 @@ describe('deepClone', () => {
       date: new Date(),
       object: {
         null: null,
-        undefined: undefined,
-        number: 42
-      }
+        undefined,
+        number: 42,
+      },
     };
     const cloned = deepClone(complex);
 

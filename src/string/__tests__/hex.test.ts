@@ -1,24 +1,23 @@
 import { stringToHex } from '../hex';
 
 describe('stringToHex', () => {
-  test('basic usage', () => {
+  it('basic usage', () => {
     expect(stringToHex('abc')).toBe('616263');
     expect(stringToHex('')).toBe('');
   });
 
-  test('non-ASCII characters', () => {
+  it('non-ASCII characters', () => {
     expect(stringToHex('你好')).toBe('4f60597d');
     expect(stringToHex('©')).toBe('a9');
   });
 
-  test('numbers and symbols', () => {
+  it('numbers and symbols', () => {
     expect(stringToHex('123')).toBe('313233');
     expect(stringToHex('!@#')).toBe('214023');
   });
 
-  test('null and undefined', () => {
+  it('null and undefined', () => {
     expect(stringToHex(null as any)).toBe('');
     expect(stringToHex(undefined as any)).toBe('');
   });
 });
-

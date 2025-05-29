@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { COLORS, COLOR_CONSTANTS, CSS_COLORS } from '../constants';
 
 describe('color constants', () => {
-  describe('COLORS', () => {
+  describe('cOLORS', () => {
     it('should have correct RGB values for basic colors', () => {
       expect(COLORS.BLACK).toEqual({ r: 0, g: 0, b: 0 });
       expect(COLORS.WHITE).toEqual({ r: 255, g: 255, b: 255 });
@@ -22,7 +22,7 @@ describe('color constants', () => {
     });
   });
 
-  describe('CSS_COLORS', () => {
+  describe('cSS_COLORS', () => {
     it('should have correct RGB values for common CSS colors', () => {
       expect(CSS_COLORS.red).toEqual({ r: 255, g: 0, b: 0 });
       expect(CSS_COLORS.green).toEqual({ r: 0, g: 128, b: 0 });
@@ -38,7 +38,7 @@ describe('color constants', () => {
     });
   });
 
-  describe('COLOR_CONSTANTS', () => {
+  describe('cOLOR_CONSTANTS', () => {
     it('should have correct maximum values', () => {
       expect(COLOR_CONSTANTS.MAX_RGB).toBe(255);
       expect(COLOR_CONSTANTS.MAX_HUE).toBe(360);
@@ -47,7 +47,7 @@ describe('color constants', () => {
       expect(COLOR_CONSTANTS.MAX_ALPHA).toBe(1);
     });
 
-    describe('REGEX', () => {
+    describe('rEGEX', () => {
       it('should match valid hex colors', () => {
         expect(COLOR_CONSTANTS.REGEX.HEX.test('#ff0000')).toBe(true);
         expect(COLOR_CONSTANTS.REGEX.HEX.test('#f00')).toBe(true);

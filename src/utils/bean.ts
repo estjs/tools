@@ -1,4 +1,4 @@
-import { capitalize } from "../string";
+import { capitalize } from '../string';
 
 /**
  * Creates a dynamic bean class with fields and auto-generated getters/setters.

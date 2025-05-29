@@ -1,4 +1,3 @@
-
 /**
  * Creates a simple event bus for subscribing, emitting, and unsubscribing events.
  * @returns An event bus instance with on, emit, and off methods

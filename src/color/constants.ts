@@ -191,10 +191,10 @@ export const COLOR_CONSTANTS = {
    * Regular expressions for color format validation
    */
   REGEX: {
-    HEX: /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i,
+    HEX: /^#?([\da-f]{3}|[\da-f]{6})$/i,
     RGB: /^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i,
-    RGBA: /^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([0-1]?\.?\d*)\s*\)$/i,
+    RGBA: /^rgba\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([01]?\.?\d*)\s*\)$/i,
     HSL: /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/i,
-    HSLA: /^hsla\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*,\s*([0-1]?\.?\d*)\s*\)$/i,
+    HSLA: /^hsla\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*,\s*([01]?\.?\d*)\s*\)$/i,
   },
 } as const;

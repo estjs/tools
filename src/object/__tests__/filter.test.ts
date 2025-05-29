@@ -30,4 +30,4 @@ describe('filterObjectByKeys', () => {
     const obj = { name: 'Alice', info: { city: 'NY' }, _meta: 1 };
     expect(filterObjectByKeys(obj)).toEqual({ name: 'Alice', info: { city: 'NY' } });
   });
-}); 
+});

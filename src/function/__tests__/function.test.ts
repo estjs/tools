@@ -1,13 +1,7 @@
-
 import { describe, expect, it, vi } from 'vitest';
-import {
-  compose,
-  memoize,
-  once,
-} from '../function';
+import { compose, memoize, once } from '../function';
 
 describe('function utilities', () => {
-
   describe('memoize', () => {
     it('should memoize function results', () => {
       const fn = vi.fn((x: number) => x * 2);
@@ -32,8 +26,6 @@ describe('function utilities', () => {
     });
   });
 
-
-
   describe('compose', () => {
     it('should compose functions', () => {
       const addOne = (x: number) => x + 1;
@@ -54,5 +46,4 @@ describe('function utilities', () => {
       expect(composed(5)).toBe(10);
     });
   });
-
 });

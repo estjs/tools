@@ -1,4 +1,3 @@
-
 /**
  * Type for a function that takes any arguments and returns any value
  */
@@ -18,7 +17,6 @@ export type Nullable<T> = T | null | undefined;
  * Type for a primitive value
  */
 export type Primitive = string | number | boolean | null | undefined;
-
 
 /**
  * Type for a value that can be a single item or an array of items
