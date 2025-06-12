@@ -5,7 +5,8 @@ export default defineConfig({
     clearMocks: true,
     environment: 'jsdom',
     coverage: {
-      exclude: ['index.ts'],
+      exclude: ['**/index.ts', '**/types.ts'],
+      include: ['src/**/*.{ts,tsx}'],
       reporter: ['text', 'json', 'html'],
     },
     globals: true,

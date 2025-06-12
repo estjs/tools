@@ -1,5 +1,3 @@
-// Main entry: export all modules
-
 export * from './utils';
 export * from './url';
 export * from './number';
